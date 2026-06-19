@@ -544,15 +544,15 @@ function previewStudio(){
   const dim = isDark?'rgba(244,244,240,.5)':'rgba(10,10,12,.5)';
   const border = isDark?'rgba(255,255,255,.1)':'rgba(0,0,0,.1)';
   const cardBg = isDark?'rgba(255,255,255,.05)':'rgba(0,0,0,.04)';
-  const templateCSS = getTemplateCSS(n);
+  const galleryCSS = document.querySelector('style').textContent;
   const html=`<!DOCTYPE html>
 <html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${svcname}</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--c1:${c1};--c2:${c2};--c3:${c3};--c4:${c4}}
-body{background:${bgColor};color:${ink};font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+${galleryCSS}
+:root{--c1:${c1};--c2:${c2};--c3:${c3};--c4:${c4};--bg:${bgColor};--ink:${ink};--dim:${dim};--panel:${cardBg};--line:${border};--sans:'Space Grotesk',sans-serif;--mono:'JetBrains Mono',monospace}
+body{background:${bgColor};color:${ink};font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 nav{display:flex;justify-content:space-between;align-items:center;padding:20px 48px;border-bottom:1px solid ${border};position:sticky;top:0;background:${bgColor}ee;z-index:10;backdrop-filter:blur(10px)}
 .logo{font-weight:700;font-size:17px;color:var(--c1)}
 .nav-links{display:flex;gap:28px;font-size:14px;color:${dim}}
@@ -589,8 +589,6 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:20px 4
 .pal{position:fixed;bottom:20px;right:20px;display:flex;gap:8px;align-items:center;background:${isDark?'rgba(20,20,30,.92)':'rgba(245,245,250,.92)'};backdrop-filter:blur(8px);border:1px solid ${border};border-radius:30px;padding:7px 14px}
 .pal-name{font-family:'JetBrains Mono',monospace;font-size:10px;color:${dim};margin-right:4px}
 .dot{width:16px;height:16px;border-radius:50%;border:1px solid ${border}}
-/* ── template-specific CSS ── */
-${templateCSS}
 </style></head><body>
 <nav>
   <div class="logo">${svcname}</div>
