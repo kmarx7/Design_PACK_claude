@@ -1,0 +1,1172 @@
+[
+  {
+    "n": "01",
+    "tag": "Tactile Brutalism",
+    "name": "Raw Grid",
+    "desc": "1px 보더, 단단한 기하학, 강한 산세리프. 엔지니어링된 정밀함을 표현하는 2026년 핵심 트렌드.",
+    "palettes": [
+      [
+        "#111111",
+        "#FF4D2E",
+        "#ECECE4",
+        "#FFFFFF"
+      ],
+      [
+        "#14110F",
+        "#3D5AFE",
+        "#EDEAE3",
+        "#FFFFFF"
+      ],
+      [
+        "#1A1A1A",
+        "#00C566",
+        "#F0EFEA",
+        "#FFFFFF"
+      ],
+      [
+        "#121212",
+        "#FFB300",
+        "#EAE7DF",
+        "#FFFFFF"
+      ],
+      [
+        "#0F0F14",
+        "#E91E63",
+        "#ECEAE6",
+        "#FFFFFF"
+      ]
+    ],
+    "html": "<div class=\"p1\" style=\"background:var(--c3)\"><div class=\"b-top\"><div class=\"b-dot\" style=\"border-color:var(--c1)\"></div><span class=\"b-num\" style=\"color:var(--c1)\">01 / SYS</span></div><h4 style=\"color:var(--c1)\">Build<br>Bolder</h4><div class=\"b-row\"><span class=\"b-btn fill\" style=\"background:var(--c2);color:var(--c4);border-color:var(--c2)\">Start</span><span class=\"b-btn\" style=\"background:var(--c4);color:var(--c1);border-color:var(--c1)\">Docs</span></div></div>"
+  },
+  {
+    "n": "02",
+    "tag": "Refined Glass",
+    "name": "Liquid Glass",
+    "desc": "제어된 투명도와 블러, 부드러운 깊이감. Apple Liquid Glass가 주도하는 정제된 글래스모피즘.",
+    "palettes": [
+      [
+        "#5B4BFF",
+        "#C04BFF",
+        "#FF6FB5",
+        "#FFD36E"
+      ],
+      [
+        "#0EA5E9",
+        "#6366F1",
+        "#A855F7",
+        "#FBBF24"
+      ],
+      [
+        "#06B6D4",
+        "#10B981",
+        "#34D399",
+        "#FDE047"
+      ],
+      [
+        "#F43F5E",
+        "#FB7185",
+        "#C084FC",
+        "#FDE68A"
+      ],
+      [
+        "#1E3A8A",
+        "#3B82F6",
+        "#60A5FA",
+        "#F0ABFC"
+      ]
+    ],
+    "html": "<div class=\"p2\" style=\"background:linear-gradient(135deg,var(--c1),var(--c2) 60%,var(--c3))\"><span class=\"orb\" style=\"background:var(--c4)\"></span><div class=\"glass\"><span class=\"pill\">New · 2026</span><h4>Clarity in<br>every layer</h4><div class=\"gbar\"></div></div></div>"
+  },
+  {
+    "n": "03",
+    "tag": "Dark Premium",
+    "name": "Linear Dark",
+    "desc": "딥 블랙 배경에 그라데이션 텍스트와 정교한 글로우. SaaS·개발툴이 선호하는 프리미엄 무드.",
+    "palettes": [
+      [
+        "#0b0b14",
+        "#5b4bff",
+        "#9b8bff",
+        "#ffffff"
+      ],
+      [
+        "#0A0F1E",
+        "#06B6D4",
+        "#67E8F9",
+        "#ffffff"
+      ],
+      [
+        "#0E0A14",
+        "#A855F7",
+        "#D8B4FE",
+        "#ffffff"
+      ],
+      [
+        "#0B1410",
+        "#10B981",
+        "#6EE7B7",
+        "#ffffff"
+      ],
+      [
+        "#120B0B",
+        "#F43F5E",
+        "#FDA4AF",
+        "#ffffff"
+      ]
+    ],
+    "html": "<div class=\"p3\" style=\"background:radial-gradient(120% 100% at 50% 0%,color-mix(in srgb,var(--c2) 18%,var(--c1)),var(--c1))\"><span class=\"badge\" style=\"color:var(--c3);border-color:color-mix(in srgb,var(--c2) 40%,var(--c1))\">v2.0 Launch</span><h4 style=\"background:linear-gradient(180deg,var(--c4),color-mix(in srgb,var(--c4) 50%,var(--c1)));-webkit-background-clip:text;background-clip:text;color:transparent\">Ship faster.<br>Look sharper.</h4><span class=\"cta\" style=\"background:linear-gradient(180deg,var(--c3),var(--c2));color:var(--c4)\">Get started →</span></div>"
+  },
+  {
+    "n": "04",
+    "tag": "Y2K Retrofuturism",
+    "name": "Neon Chrome",
+    "desc": "네온 그라데이션, 크롬 텍스처, 그리드 배경. Y2K 노스탤지어 기반의 사이버 미학.",
+    "palettes": [
+      [
+        "#00E5FF",
+        "#FF00C8",
+        "#05010f",
+        "#ffffff"
+      ],
+      [
+        "#39FF14",
+        "#FF6EC7",
+        "#0A0014",
+        "#ffffff"
+      ],
+      [
+        "#FFD500",
+        "#FF2E63",
+        "#0B0410",
+        "#ffffff"
+      ],
+      [
+        "#00FFC6",
+        "#7C4DFF",
+        "#05030F",
+        "#ffffff"
+      ],
+      [
+        "#FF8A00",
+        "#00B3FF",
+        "#0C0610",
+        "#ffffff"
+      ]
+    ],
+    "html": "<div class=\"p4\" style=\"background-color:var(--c3)\"><span class=\"chrome\" style=\"color:var(--c1);border-color:var(--c1)\">◆ SYSTEM ONLINE</span><h4 style=\"background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent\">Future<br>Loading</h4><div class=\"y2k-grid\"><span style=\"background:linear-gradient(90deg,var(--c2),var(--c1))\"></span><span style=\"background:linear-gradient(90deg,var(--c2),var(--c1))\"></span><span style=\"background:linear-gradient(90deg,var(--c2),var(--c1))\"></span></div></div>"
+  },
+  {
+    "n": "05",
+    "tag": "Nature Distilled",
+    "name": "Earthy Calm",
+    "desc": "클레이·우드·소일의 뮤트 톤과 세리프 타입. Pantone 2026 무드의 따뜻하고 차분한 스타일.",
+    "palettes": [
+      [
+        "#E8E2D5",
+        "#4A4032",
+        "#8B9474",
+        "#7A6E5A"
+      ],
+      [
+        "#EDE4D3",
+        "#3F3A30",
+        "#A8B18C",
+        "#857A65"
+      ],
+      [
+        "#E6E8E0",
+        "#33403A",
+        "#7FA08C",
+        "#6E7A6E"
+      ],
+      [
+        "#F0E6D6",
+        "#4D3B2F",
+        "#C2956A",
+        "#8A7559"
+      ],
+      [
+        "#E4E6E2",
+        "#2F3A33",
+        "#9CAE8E",
+        "#6F7A6B"
+      ]
+    ],
+    "html": "<div class=\"p5\" style=\"background:var(--c1)\"><div class=\"e-row\"><div class=\"leaf\" style=\"background:var(--c3)\"></div></div><h4 style=\"color:var(--c2)\">Grow<br>slowly</h4><p style=\"color:var(--c4)\">자연에서 추출한 톤으로 만든 차분한 인터페이스.</p><div class=\"e-row\"><span class=\"e-btn\" style=\"background:var(--c2);color:var(--c1)\">Explore</span><span class=\"e-dot\" style=\"background:var(--c3)\"></span><span class=\"e-dot\" style=\"background:var(--c4)\"></span></div></div>"
+  },
+  {
+    "n": "06",
+    "tag": "Dopamine Max",
+    "name": "Bold & Fun",
+    "desc": "고채도 컬러 충돌, 과감한 도형, 두꺼운 타입. 라이프스타일·뷰티 브랜드의 도파민 디자인.",
+    "palettes": [
+      [
+        "#FFE600",
+        "#0029FF",
+        "#FF2D95",
+        "#0029FF"
+      ],
+      [
+        "#FF5400",
+        "#1A0DAB",
+        "#00E0B8",
+        "#1A0DAB"
+      ],
+      [
+        "#C6FF00",
+        "#FF006E",
+        "#3A0CA3",
+        "#FF006E"
+      ],
+      [
+        "#00E5FF",
+        "#FF006E",
+        "#FFBE0B",
+        "#FF006E"
+      ],
+      [
+        "#FF61D2",
+        "#0F00FF",
+        "#FFEC00",
+        "#0F00FF"
+      ]
+    ],
+    "html": "<div class=\"p6\" style=\"background:var(--c1)\"><span class=\"d-blob\" style=\"background:var(--c3)\"></span><span class=\"d-star\" style=\"color:var(--c4)\">★</span><h4 style=\"color:var(--c2)\">Make<br>It Pop</h4><span class=\"d-btn\" style=\"background:var(--c2);color:var(--c1)\">Yes!! →</span></div>"
+  },
+  {
+    "n": "07",
+    "tag": "Bento Grid",
+    "name": "Modular Blocks",
+    "desc": "정보를 사분면으로 구획하는 모듈형 그리드. 대시보드·포트폴리오 스캔에 최적화된 구조.",
+    "palettes": [
+      [
+        "#0e0e12",
+        "#FF6B5F",
+        "#16161d",
+        "#23232c"
+      ],
+      [
+        "#0B0F14",
+        "#38BDF8",
+        "#141A22",
+        "#26303B"
+      ],
+      [
+        "#0E0B14",
+        "#A78BFA",
+        "#171221",
+        "#2A2238"
+      ],
+      [
+        "#0B120E",
+        "#34D399",
+        "#121A15",
+        "#243029"
+      ],
+      [
+        "#13100B",
+        "#FBBF24",
+        "#1C1811",
+        "#322B1C"
+      ]
+    ],
+    "html": "<div class=\"p7\" style=\"background:var(--c1)\"><div class=\"b-a\" style=\"background:linear-gradient(160deg,var(--c3),var(--c1));border-color:var(--c4)\"><span class=\"lbl\">Overview</span><h4>Bento<br>System</h4></div><div class=\"b-b\" style=\"background:var(--c3);border-color:var(--c4)\"><span class=\"lbl\">Users</span><span class=\"stat\">12.4k</span></div><div class=\"b-c\" style=\"background:var(--c2);border-color:var(--c2)\"><span class=\"lbl\">Growth</span><span class=\"stat\">+38%</span></div></div>"
+  },
+  {
+    "n": "08",
+    "tag": "Kinetic Type",
+    "name": "Motion Text",
+    "desc": "움직이는 대형 타이포그래피가 화면을 이끄는 구조. 타입 자체가 레이아웃이 되는 표현형 트렌드.",
+    "palettes": [
+      [
+        "#111111",
+        "#C6FF00",
+        "#ffffff",
+        "#000000"
+      ],
+      [
+        "#0E0E10",
+        "#FF3B3B",
+        "#ffffff",
+        "#000000"
+      ],
+      [
+        "#101418",
+        "#00E5FF",
+        "#ffffff",
+        "#000000"
+      ],
+      [
+        "#14100E",
+        "#FF8A00",
+        "#ffffff",
+        "#000000"
+      ],
+      [
+        "#0F0E14",
+        "#B388FF",
+        "#ffffff",
+        "#000000"
+      ]
+    ],
+    "html": "<div class=\"p8\" style=\"background:var(--c1)\"><div class=\"ticker\"><span style=\"-webkit-text-stroke:1px var(--c3);color:transparent\">Design</span><span class=\"fill\" style=\"color:var(--c2)\">Faster</span><span style=\"-webkit-text-stroke:1px var(--c3);color:transparent\">Design</span><span class=\"fill\" style=\"color:var(--c2)\">Faster</span></div></div>"
+  },
+  {
+    "n": "09",
+    "tag": "Soft Neumorphism",
+    "name": "Soft Tactile",
+    "desc": "부드러운 양각·음각 그림자로 만든 촉각적 UI. 토글·카드 중심의 차분한 인터랙션.",
+    "palettes": [
+      [
+        "#E4E9F0",
+        "#7B8CFF",
+        "#c2c8d4",
+        "#ffffff"
+      ],
+      [
+        "#ECEFF4",
+        "#5EC2A8",
+        "#cdd3da",
+        "#ffffff"
+      ],
+      [
+        "#F0EBF5",
+        "#B07BFF",
+        "#d6cde0",
+        "#ffffff"
+      ],
+      [
+        "#F2ECE4",
+        "#FF9F6B",
+        "#dcd2c6",
+        "#ffffff"
+      ],
+      [
+        "#E8ECEA",
+        "#4FB0C6",
+        "#cbd2cf",
+        "#ffffff"
+      ]
+    ],
+    "html": "<div class=\"p9\" style=\"background:var(--c1)\"><div class=\"card9\" style=\"background:var(--c1);box-shadow:8px 8px 18px var(--c3),-8px -8px 18px var(--c4)\"><div class=\"nrow\"><h4>Notifications</h4><div class=\"toggle\" style=\"background:var(--c1);box-shadow:inset 4px 4px 8px var(--c3),inset -4px -4px 8px var(--c4)\"><span style=\"background:var(--c2)\"></span></div></div></div><div class=\"card9\" style=\"background:var(--c1);box-shadow:8px 8px 18px var(--c3),-8px -8px 18px var(--c4)\"><div class=\"nrow\"><h4>Dark mode</h4><div class=\"toggle\" style=\"background:var(--c1);box-shadow:inset 4px 4px 8px var(--c3),inset -4px -4px 8px var(--c4)\"><span style=\"background:var(--c2)\"></span></div></div></div></div>"
+  },
+  {
+    "n": "10",
+    "tag": "Editorial Serif",
+    "name": "Magazine",
+    "desc": "이탤릭 세리프와 룰 라인으로 구성한 편집 디자인. 텍스트에 권위와 무드를 더하는 스타일.",
+    "palettes": [
+      [
+        "#FBF8F1",
+        "#1a1a1a",
+        "#555555",
+        "#1a1a1a"
+      ],
+      [
+        "#F7F3EC",
+        "#202020",
+        "#5A5A5A",
+        "#B91C1C"
+      ],
+      [
+        "#F4F1EA",
+        "#1C1C1C",
+        "#585858",
+        "#1D4ED8"
+      ],
+      [
+        "#FAF6EF",
+        "#181818",
+        "#525252",
+        "#047857"
+      ],
+      [
+        "#F8F4ED",
+        "#1A1A1A",
+        "#565656",
+        "#B45309"
+      ]
+    ],
+    "html": "<div class=\"p10\" style=\"background:var(--c1)\"><div class=\"rule\" style=\"background:var(--c4)\"></div><div class=\"e-top\" style=\"color:var(--c2)\"><span>Issue 01</span><span>2026</span></div><h4 style=\"color:var(--c2)\">The art of<br>restraint</h4><p style=\"color:var(--c3)\">여백과 타이포그래피만으로 완성하는 우아함.</p></div>"
+  },
+  {
+    "n": "11",
+    "tag": "Claymorphism",
+    "name": "Soft Clay",
+    "desc": "부풀어 오른 둥근 요소와 레이어드 그림자, 따뜻한 파스텔. 친근하고 만지고 싶은 3D 감각.",
+    "palettes": [
+      [
+        "#F0E6FF",
+        "#A88BFF",
+        "#FF9EC4",
+        "#FFD27A"
+      ],
+      [
+        "#E6F4FF",
+        "#7BC4FF",
+        "#9EE6C4",
+        "#FFE08A"
+      ],
+      [
+        "#FFEDE6",
+        "#FFA07B",
+        "#FFC49E",
+        "#FFE0B0"
+      ],
+      [
+        "#ECE6FF",
+        "#8B95FF",
+        "#B6A0FF",
+        "#FFB0E0"
+      ],
+      [
+        "#E6FFF4",
+        "#6FE0C4",
+        "#A0E6FF",
+        "#FFE89E"
+      ]
+    ],
+    "html": "<div class=\"p11\" style=\"background:linear-gradient(135deg,var(--c1),color-mix(in srgb,var(--c3) 30%,var(--c1)))\"><div class=\"clay-card\" style=\"box-shadow:6px 6px 16px color-mix(in srgb,var(--c2) 50%,transparent),inset 2px 2px 6px rgba(255,255,255,.9)\"><div class=\"clay-ico\" style=\"background:linear-gradient(135deg,var(--c2),var(--c3))\">◍</div><h4 style=\"color:color-mix(in srgb,var(--c2) 70%,#222)\">Hello!</h4></div><div class=\"clay-row\"><span class=\"clay-btn\" style=\"background:linear-gradient(135deg,var(--c3),var(--c4));box-shadow:5px 5px 14px color-mix(in srgb,var(--c3) 50%,transparent)\">Go</span><span class=\"clay-pill\" style=\"box-shadow:inset 3px 3px 7px color-mix(in srgb,var(--c2) 35%,transparent)\"></span></div></div>"
+  },
+  {
+    "n": "12",
+    "tag": "Aurora UI",
+    "name": "Mesh Glow",
+    "desc": "북극광에서 영감받은 그라데이션 메시와 은은한 발광 배경. 부드러운 색 전환의 분위기형 스타일.",
+    "palettes": [
+      [
+        "#7C5CFF",
+        "#22D3EE",
+        "#FF7AC8",
+        "#0a0a1a"
+      ],
+      [
+        "#34D399",
+        "#22D3EE",
+        "#A78BFA",
+        "#06121A"
+      ],
+      [
+        "#FB7185",
+        "#F472B6",
+        "#C084FC",
+        "#140A14"
+      ],
+      [
+        "#38BDF8",
+        "#818CF8",
+        "#E879F9",
+        "#080A18"
+      ],
+      [
+        "#FBBF24",
+        "#FB923C",
+        "#F472B6",
+        "#140C08"
+      ]
+    ],
+    "html": "<div class=\"p12\" style=\"background:var(--c4)\"><span class=\"g1\" style=\"background:radial-gradient(circle,var(--c1),transparent 70%)\"></span><span class=\"g2\" style=\"background:radial-gradient(circle,var(--c2),transparent 70%)\"></span><div class=\"aur-card\"><span class=\"aur-tag\" style=\"color:var(--c3)\">Aurora</span><h4>Glow in<br>the dark</h4></div></div>"
+  },
+  {
+    "n": "13",
+    "tag": "Spatial / AR",
+    "name": "Depth Layers",
+    "desc": "공간 컴퓨팅 기반 반투명 레이어와 깊이 표현. Vision Pro·AR 환경을 위한 디자인 언어.",
+    "palettes": [
+      [
+        "#0c1430",
+        "#5EE1FF",
+        "#ffffff",
+        "#1b2a55"
+      ],
+      [
+        "#140C30",
+        "#B98BFF",
+        "#ffffff",
+        "#2A1B55"
+      ],
+      [
+        "#0C1A14",
+        "#5EFFB0",
+        "#ffffff",
+        "#1B3A2A"
+      ],
+      [
+        "#1A0C18",
+        "#FF8AD0",
+        "#ffffff",
+        "#3A1B33"
+      ],
+      [
+        "#0C1024",
+        "#8AA0FF",
+        "#ffffff",
+        "#1B2147"
+      ]
+    ],
+    "html": "<div class=\"p13\" style=\"background:radial-gradient(120% 120% at 30% 20%,var(--c4),var(--c1))\"><div class=\"sp l1\" style=\"border-color:color-mix(in srgb,var(--c2) 40%,transparent);background:color-mix(in srgb,var(--c2) 6%,transparent)\"></div><div class=\"sp l2\" style=\"border-color:color-mix(in srgb,var(--c2) 40%,transparent);background:color-mix(in srgb,var(--c2) 12%,transparent)\"><h4 style=\"color:var(--c3)\">Spatial</h4><span style=\"color:var(--c2)\">Layer 02</span></div><div class=\"sp l3\" style=\"border-color:color-mix(in srgb,var(--c2) 40%,transparent);background:color-mix(in srgb,var(--c2) 6%,transparent)\"></div></div>"
+  },
+  {
+    "n": "14",
+    "tag": "Anti-Design",
+    "name": "Raw Chaos",
+    "desc": "의도적 무질서, 충돌하는 폰트, 깨진 그리드. AI식 완벽주의에 대한 반동의 미학.",
+    "palettes": [
+      [
+        "#fafafa",
+        "#FF0000",
+        "#0000FF",
+        "#111111"
+      ],
+      [
+        "#FFFEF2",
+        "#FF1493",
+        "#000000",
+        "#FF1493"
+      ],
+      [
+        "#F0F0F0",
+        "#00AA00",
+        "#FF6600",
+        "#111111"
+      ],
+      [
+        "#FFF8E7",
+        "#8B00FF",
+        "#FF0000",
+        "#111111"
+      ],
+      [
+        "#EFEFEF",
+        "#FF3300",
+        "#0099FF",
+        "#111111"
+      ]
+    ],
+    "html": "<div class=\"p14\" style=\"background:var(--c1)\"><span class=\"ad-a\" style=\"background:var(--c2);color:#fff\">SALE!!!</span><h4 style=\"color:var(--c4)\">why<br>so neat?</h4><span class=\"ad-b\" style=\"background:var(--c3);color:#fff\">click here →</span><span class=\"ad-c\" style=\"color:var(--c2)\">★ new ★</span></div>"
+  },
+  {
+    "n": "15",
+    "tag": "Mono Minimal",
+    "name": "Swiss Grid",
+    "desc": "단색 팔레트, 엄격한 그리드, 충분한 여백. 스위스 인터내셔널 타이포 기반의 정제된 미니멀.",
+    "palettes": [
+      [
+        "#ffffff",
+        "#111111",
+        "#e5e5e5",
+        "#FF3B00"
+      ],
+      [
+        "#FAFAFA",
+        "#0A0A0A",
+        "#E2E2E2",
+        "#0047FF"
+      ],
+      [
+        "#FFFFFF",
+        "#141414",
+        "#E6E6E6",
+        "#00A86B"
+      ],
+      [
+        "#F8F8F6",
+        "#161616",
+        "#E4E2DD",
+        "#7C3AED"
+      ],
+      [
+        "#FBFBFB",
+        "#0F0F0F",
+        "#E0E0E0",
+        "#FF006E"
+      ]
+    ],
+    "html": "<div class=\"p15\" style=\"background:var(--c1)\"><div class=\"sw-top\" style=\"color:var(--c2)\"><span>01</span><span>—</span><span>2026</span></div><h4 style=\"color:var(--c2)\">Less,<br>arranged<br>better.</h4><div class=\"sw-bar\" style=\"background:var(--c4)\"></div></div>"
+  },
+  {
+    "n": "16",
+    "tag": "Cyber HUD",
+    "name": "Tech Console",
+    "desc": "모노스페이스 데이터, 스캔라인, 형광 액센트. 콘솔·터미널 감성의 테크니컬 인터페이스.",
+    "palettes": [
+      [
+        "#04130d",
+        "#00FF9C",
+        "#0affc8",
+        "#073527"
+      ],
+      [
+        "#0A0E1A",
+        "#00D4FF",
+        "#5EE1FF",
+        "#0A2540"
+      ],
+      [
+        "#140A04",
+        "#FFB000",
+        "#FFD45E",
+        "#3A2700"
+      ],
+      [
+        "#0E0414",
+        "#D400FF",
+        "#E85EFF",
+        "#2A0735"
+      ],
+      [
+        "#13040A",
+        "#FF0055",
+        "#FF5E8A",
+        "#350714"
+      ]
+    ],
+    "html": "<div class=\"p16\" style=\"background:var(--c1)\"><div class=\"hud-top\" style=\"color:var(--c2)\"><span>● SYS_OK</span><span>v2.6.0</span></div><h4 style=\"color:var(--c3);text-shadow:0 0 12px color-mix(in srgb,var(--c3) 60%,transparent)\">// READY_</h4><div class=\"hud-bars\"><span style=\"background:var(--c2)\"></span><span style=\"background:var(--c2)\"></span><span style=\"background:var(--c2)\"></span><span style=\"background:var(--c2)\"></span></div></div>"
+  },
+  {
+    "n": "17",
+    "tag": "Pastel Dream",
+    "name": "Soft Candy",
+    "desc": "여린 파스텔 그라데이션과 둥근 형태, 가벼운 무드. 웰니스·뷰티 브랜드의 부드러운 감성.",
+    "palettes": [
+      [
+        "#FFE5EC",
+        "#BDE0FE",
+        "#C8B6FF",
+        "#8B6BB0"
+      ],
+      [
+        "#FFF0E5",
+        "#FFE5F0",
+        "#FFC4D6",
+        "#B06B85"
+      ],
+      [
+        "#E5FFF0",
+        "#E5F0FF",
+        "#B6E0FF",
+        "#6B8BB0"
+      ],
+      [
+        "#F5E5FF",
+        "#FFE5F5",
+        "#E0B6FF",
+        "#8B6BB0"
+      ],
+      [
+        "#FFFBE5",
+        "#E5FFEC",
+        "#C4FFD6",
+        "#6BB085"
+      ]
+    ],
+    "html": "<div class=\"p17\" style=\"background:linear-gradient(135deg,var(--c1),var(--c2))\"><div class=\"pd-blob\" style=\"background:var(--c3)\"></div><h4 style=\"color:var(--c4)\">breathe</h4><span class=\"pd-btn\" style=\"color:var(--c4)\">soft start</span></div>"
+  },
+  {
+    "n": "18",
+    "tag": "Vintage Print",
+    "name": "Risograph",
+    "desc": "리소 인쇄 질감, 오버프린트 컬러, 미스레지스터 효과. 아날로그 감성의 빈티지 프린트룩.",
+    "palettes": [
+      [
+        "#F3ECD9",
+        "#FF5A36",
+        "#2B4FFF",
+        "#1a1a1a"
+      ],
+      [
+        "#F0EAD6",
+        "#E8336D",
+        "#00A88A",
+        "#1a1a1a"
+      ],
+      [
+        "#EDE8DB",
+        "#FF8C00",
+        "#6A4FFF",
+        "#1a1a1a"
+      ],
+      [
+        "#F2EFE2",
+        "#D6006E",
+        "#2BA84A",
+        "#1a1a1a"
+      ],
+      [
+        "#EFE9D8",
+        "#0066FF",
+        "#FF4D6D",
+        "#1a1a1a"
+      ]
+    ],
+    "html": "<div class=\"p18\" style=\"background:var(--c1)\"><h4 data-t=\"PRESS\" style=\"color:var(--c2)\"><span class=\"vp-shadow\" style=\"color:var(--c3)\">PRESS</span>PRESS</h4><span class=\"vp-tag\" style=\"color:var(--c4)\">Riso · 2 color</span><div class=\"vp-line\" style=\"background:var(--c3)\"></div></div>"
+  },
+  {
+    "n": "19",
+    "tag": "Liquid Chrome",
+    "name": "Metal Flow",
+    "desc": "흐르는 크롬·메탈릭 텍스처와 반사. 미래적이고 고급스러운 메탈 표면 표현.",
+    "palettes": [
+      [
+        "#0a0a0a",
+        "#e8e8f0",
+        "#8a8a9a",
+        "#ffffff"
+      ],
+      [
+        "#0A0A14",
+        "#C4C8FF",
+        "#7A7E9A",
+        "#ffffff"
+      ],
+      [
+        "#140A0A",
+        "#FFD4C4",
+        "#9A7A7A",
+        "#ffffff"
+      ],
+      [
+        "#0A140E",
+        "#C4FFD8",
+        "#7A9A86",
+        "#ffffff"
+      ],
+      [
+        "#100A14",
+        "#E0C4FF",
+        "#8A7A9A",
+        "#ffffff"
+      ]
+    ],
+    "html": "<div class=\"p19\" style=\"background:var(--c1)\"><div class=\"chrome-orb\" style=\"background:linear-gradient(135deg,var(--c4),var(--c3) 40%,var(--c1) 60%,var(--c2))\"></div><h4 style=\"background:linear-gradient(180deg,var(--c4),var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent\">FLUID</h4><span class=\"chrome-tag\" style=\"color:var(--c3)\">METAL · 2026</span></div>"
+  },
+  {
+    "n": "20",
+    "tag": "Organic Blob",
+    "name": "Fluid Shapes",
+    "desc": "유기적인 블롭 형태와 자연스러운 곡선, 부드러운 흐름. 딱딱한 그리드를 벗어난 유동 레이아웃.",
+    "palettes": [
+      [
+        "#FF7E5F",
+        "#FEB47B",
+        "#ffffff",
+        "#2d2d2d"
+      ],
+      [
+        "#6A82FB",
+        "#A0C4FF",
+        "#ffffff",
+        "#2d2d2d"
+      ],
+      [
+        "#43E97B",
+        "#38F9D7",
+        "#ffffff",
+        "#1d3d2d"
+      ],
+      [
+        "#C471F5",
+        "#FA71CD",
+        "#ffffff",
+        "#2d2d2d"
+      ],
+      [
+        "#FA709A",
+        "#FEE140",
+        "#ffffff",
+        "#2d2d2d"
+      ]
+    ],
+    "html": "<div class=\"p20\" style=\"background:var(--c3)\"><div class=\"ob-blob\" style=\"background:linear-gradient(135deg,var(--c1),var(--c2))\"></div><div class=\"ob-content\"><h4 style=\"color:var(--c4)\">Flow<br>freely</h4><span class=\"ob-btn\" style=\"background:var(--c4);color:var(--c3)\">→</span></div></div>"
+  },
+  {
+    "n": "21",
+    "tag": "High Contrast",
+    "name": "Mono Pop",
+    "desc": "순수한 흑백에 단 하나의 강렬한 액센트. 접근성과 대담함을 동시에 잡는 고대비 디자인.",
+    "palettes": [
+      [
+        "#000000",
+        "#ffffff",
+        "#FFE600",
+        "#000000"
+      ],
+      [
+        "#000000",
+        "#ffffff",
+        "#00FF95",
+        "#000000"
+      ],
+      [
+        "#000000",
+        "#ffffff",
+        "#FF3B3B",
+        "#000000"
+      ],
+      [
+        "#000000",
+        "#ffffff",
+        "#00C4FF",
+        "#000000"
+      ],
+      [
+        "#1A1A1A",
+        "#ffffff",
+        "#FF6B00",
+        "#1A1A1A"
+      ]
+    ],
+    "html": "<div class=\"p21\" style=\"background:var(--c1)\"><h4 style=\"color:var(--c2)\">BOLD</h4><div class=\"hc-row\"><span class=\"hc-btn\" style=\"background:var(--c3);color:var(--c1)\">START</span><span class=\"hc-arrow\" style=\"color:var(--c3)\">↗</span></div></div>"
+  },
+  {
+    "n": "22",
+    "tag": "Gradient Mesh",
+    "name": "Color Wash",
+    "desc": "풀스크린 라디얼·리니어 그라데이션이 겹쳐진 컬러 워시. 히어로 섹션의 분위기 메이커.",
+    "palettes": [
+      [
+        "#FF6CAB",
+        "#7366FF",
+        "#00D4FF",
+        "#ffffff"
+      ],
+      [
+        "#F9D423",
+        "#FF4E50",
+        "#A044FF",
+        "#ffffff"
+      ],
+      [
+        "#43CEA2",
+        "#185A9D",
+        "#7F00FF",
+        "#ffffff"
+      ],
+      [
+        "#FF512F",
+        "#DD2476",
+        "#1FA2FF",
+        "#ffffff"
+      ],
+      [
+        "#11998E",
+        "#38EF7D",
+        "#FC466B",
+        "#ffffff"
+      ]
+    ],
+    "html": "<div class=\"p22\" style=\"background:radial-gradient(circle at 20% 20%,var(--c1),transparent 50%),radial-gradient(circle at 80% 30%,var(--c2),transparent 50%),radial-gradient(circle at 50% 90%,var(--c3),transparent 55%),#1a1a2e\"><h4 style=\"color:var(--c4)\">Spectrum</h4><span class=\"gm-btn\" style=\"color:var(--c4)\">Discover</span></div>"
+  },
+  {
+    "n": "23",
+    "tag": "Skeuomorphic",
+    "name": "Real Texture",
+    "desc": "가죽·종이·금속 등 실물 질감 재현. 익숙함과 촉각성을 주는 사실적 인터페이스.",
+    "palettes": [
+      [
+        "#3d2b1f",
+        "#c9a876",
+        "#1a120b",
+        "#e8d5b0"
+      ],
+      [
+        "#2B2B33",
+        "#A8B0C0",
+        "#14141A",
+        "#D8DEE9"
+      ],
+      [
+        "#1F2D2B",
+        "#7BB0A8",
+        "#0B1412",
+        "#C4E0DA"
+      ],
+      [
+        "#33241F",
+        "#C99876",
+        "#1A0F0B",
+        "#E8C9B0"
+      ],
+      [
+        "#2D1F2B",
+        "#C076A8",
+        "#140B12",
+        "#E8B0D8"
+      ]
+    ],
+    "html": "<div class=\"p23\" style=\"background:var(--c1)\"><div class=\"sk-panel\" style=\"background:linear-gradient(135deg,var(--c4),var(--c2));border-color:color-mix(in srgb,var(--c3) 60%,var(--c2))\"><h4 style=\"color:var(--c3)\">Notebook</h4><div class=\"sk-line\" style=\"background:color-mix(in srgb,var(--c3) 30%,transparent)\"></div><div class=\"sk-line\" style=\"background:color-mix(in srgb,var(--c3) 30%,transparent)\"></div></div></div>"
+  },
+  {
+    "n": "24",
+    "tag": "Neon Cyberpunk",
+    "name": "Night City",
+    "desc": "딥 다크 위 네온 핑크·시안 글로우와 글리치. 사이버펑크 분위기의 강렬한 야간 UI.",
+    "palettes": [
+      [
+        "#0d0221",
+        "#FF2A6D",
+        "#05D9E8",
+        "#D1F7FF"
+      ],
+      [
+        "#0A0014",
+        "#FF6B00",
+        "#00FFC6",
+        "#D1FFF4"
+      ],
+      [
+        "#0E0A1A",
+        "#B026FF",
+        "#00E5FF",
+        "#E8D1FF"
+      ],
+      [
+        "#140208",
+        "#FF0040",
+        "#FFD500",
+        "#FFF4D1"
+      ],
+      [
+        "#02140E",
+        "#00FF95",
+        "#FF2AD4",
+        "#D1FFE8"
+      ]
+    ],
+    "html": "<div class=\"p24\" style=\"background:var(--c1)\"><span class=\"cp-tag\" style=\"color:var(--c3)\">// 2099</span><h4 style=\"color:var(--c2);text-shadow:0 0 16px color-mix(in srgb,var(--c2) 70%,transparent),3px 3px 0 var(--c3)\">NEO<br>TOKYO</h4><div class=\"cp-line\" style=\"background:linear-gradient(90deg,var(--c2),var(--c3));box-shadow:0 0 10px var(--c3)\"></div></div>"
+  },
+  {
+    "n": "25",
+    "tag": "Warm Minimal",
+    "name": "Cozy Clean",
+    "desc": "따뜻한 크림·테라코타 톤의 미니멀. 차가운 화이트를 피한 포근한 정돈된 무드.",
+    "palettes": [
+      [
+        "#F5EFE6",
+        "#D9774E",
+        "#3D3833",
+        "#A89A85"
+      ],
+      [
+        "#F2EDE4",
+        "#C25E45",
+        "#33302B",
+        "#A0917C"
+      ],
+      [
+        "#F0EBE2",
+        "#B5854A",
+        "#363029",
+        "#9C8E75"
+      ],
+      [
+        "#F4EFE8",
+        "#A86B5C",
+        "#383330",
+        "#A09385"
+      ],
+      [
+        "#F6F0E7",
+        "#8A9A6B",
+        "#363B30",
+        "#959C85"
+      ]
+    ],
+    "html": "<div class=\"p25\" style=\"background:var(--c1)\"><span class=\"wm-tag\" style=\"color:var(--c4)\">since 2026</span><h4 style=\"color:var(--c3)\">Stay<br>warm</h4><span class=\"wm-btn\" style=\"background:var(--c2);color:var(--c1)\">Enter</span></div>"
+  },
+  {
+    "n": "26",
+    "tag": "3D Render",
+    "name": "Soft 3D",
+    "desc": "부드럽게 렌더된 3D 오브젝트와 그림자. 깊이와 입체감으로 시선을 끄는 비주얼.",
+    "palettes": [
+      [
+        "#EEF1FF",
+        "#6C5CE7",
+        "#FD79A8",
+        "#A29BFE"
+      ],
+      [
+        "#EFFCF5",
+        "#16A085",
+        "#FFB86B",
+        "#5EE8C0"
+      ],
+      [
+        "#FFF0EE",
+        "#FF6B6B",
+        "#FFD93D",
+        "#FFA0A0"
+      ],
+      [
+        "#F0F4FF",
+        "#3B82F6",
+        "#F472B6",
+        "#93C5FD"
+      ],
+      [
+        "#F5EEFF",
+        "#9B59B6",
+        "#1ABC9C",
+        "#C7A0E8"
+      ]
+    ],
+    "html": "<div class=\"p26\" style=\"background:linear-gradient(160deg,var(--c1),#fff)\"><div class=\"d3-sphere\" style=\"background:radial-gradient(circle at 30% 25%,#fff,var(--c4) 50%,var(--c2))\"></div><div class=\"d3-cube\" style=\"background:linear-gradient(135deg,var(--c3),color-mix(in srgb,var(--c3) 60%,#fff))\"></div><h4 style=\"color:var(--c2)\">Render</h4></div>"
+  },
+  {
+    "n": "27",
+    "tag": "Grid Lines",
+    "name": "Blueprint",
+    "desc": "청사진 같은 그리드 라인과 좌표, 테크니컬 드로잉 감성. 정밀하고 구조적인 레이아웃.",
+    "palettes": [
+      [
+        "#0a1f3c",
+        "#4FA8FF",
+        "#9FD0FF",
+        "#021024"
+      ],
+      [
+        "#0A2A1F",
+        "#4FFFB0",
+        "#9FFFD0",
+        "#021810"
+      ],
+      [
+        "#2A0A1F",
+        "#FF4F9F",
+        "#FF9FCF",
+        "#180210"
+      ],
+      [
+        "#1F1A0A",
+        "#FFC44F",
+        "#FFE09F",
+        "#100C02"
+      ],
+      [
+        "#1A0A2A",
+        "#A04FFF",
+        "#CF9FFF",
+        "#0E0218"
+      ]
+    ],
+    "html": "<div class=\"p27\" style=\"background-color:var(--c1);background-image:linear-gradient(color-mix(in srgb,var(--c2) 18%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--c2) 18%,transparent) 1px,transparent 1px)\"><div class=\"bp-cross tl\"><span style=\"background:var(--c2)\"></span><span style=\"background:var(--c2)\"></span></div><div class=\"bp-cross br\"><span style=\"background:var(--c2)\"></span><span style=\"background:var(--c2)\"></span></div><h4 style=\"color:var(--c3)\">BLUEPRINT</h4><span class=\"bp-coord\" style=\"color:var(--c2)\">x:240 y:180</span></div>"
+  },
+  {
+    "n": "28",
+    "tag": "Playful Sticker",
+    "name": "Sticker Pop",
+    "desc": "스티커처럼 떠 있는 둥근 요소와 발랄한 컬러, 그림자. 친근하고 장난기 있는 인터페이스.",
+    "palettes": [
+      [
+        "#FFF8E1",
+        "#FF6B9D",
+        "#6BCB77",
+        "#4D96FF"
+      ],
+      [
+        "#E1F8FF",
+        "#FF9F45",
+        "#9B5DE5",
+        "#00BBF9"
+      ],
+      [
+        "#FFE1F0",
+        "#F15BB5",
+        "#FEE440",
+        "#00BBF9"
+      ],
+      [
+        "#E8FFE1",
+        "#FF4D6D",
+        "#FFC300",
+        "#5DADE2"
+      ],
+      [
+        "#FFF0E1",
+        "#7B2FF7",
+        "#F107A3",
+        "#41E2BA"
+      ]
+    ],
+    "html": "<div class=\"p28\" style=\"background:var(--c1)\"><span class=\"st-1\" style=\"background:var(--c2);color:#fff;box-shadow:0 4px 0 color-mix(in srgb,var(--c2) 70%,#000)\">NEW</span><span class=\"st-2\" style=\"color:var(--c3);text-shadow:0 3px 0 color-mix(in srgb,var(--c3) 70%,#000)\">★</span><h4 style=\"color:var(--c4);text-shadow:0 3px 0 color-mix(in srgb,var(--c4) 30%,transparent)\">Tap me!</h4><span class=\"st-btn\" style=\"background:var(--c3);color:#fff;box-shadow:0 5px 0 color-mix(in srgb,var(--c3) 70%,#000)\">GO →</span></div>"
+  },
+  {
+    "n": "29",
+    "tag": "Frost Light",
+    "name": "Light Glass",
+    "desc": "밝은 배경의 프로스티드 글래스와 은은한 보더. 가볍고 청량한 라이트 모드 글래스.",
+    "palettes": [
+      [
+        "#EAF0FF",
+        "#D6E4FF",
+        "#9BB8FF",
+        "#5C7CFA"
+      ],
+      [
+        "#EAFFF6",
+        "#D6FFEC",
+        "#9BFFC4",
+        "#2CB67D"
+      ],
+      [
+        "#FFEAF4",
+        "#FFD6E8",
+        "#FF9BC4",
+        "#E84393"
+      ],
+      [
+        "#FFF4EA",
+        "#FFE8D6",
+        "#FFC49B",
+        "#E8732C"
+      ],
+      [
+        "#F4EAFF",
+        "#E8D6FF",
+        "#C49BFF",
+        "#7C3AED"
+      ]
+    ],
+    "html": "<div class=\"p29\" style=\"background:linear-gradient(135deg,var(--c1),var(--c2))\"><span class=\"fl-orb\" style=\"background:var(--c3)\"></span><div class=\"fl-glass\"><span class=\"fl-pill\" style=\"color:var(--c4);background:color-mix(in srgb,var(--c4) 12%,transparent)\">Light</span><h4 style=\"color:color-mix(in srgb,var(--c4) 80%,#222)\">Clear &<br>calm</h4></div></div>"
+  },
+  {
+    "n": "30",
+    "tag": "Duotone Bold",
+    "name": "Two-Tone",
+    "desc": "두 가지 색만으로 구성한 강렬한 듀오톤. 단순하지만 임팩트 있는 컬러 시스템.",
+    "palettes": [
+      [
+        "#1A1B4B",
+        "#FF4757",
+        "#1A1B4B",
+        "#FF4757"
+      ],
+      [
+        "#0B2818",
+        "#FFD23F",
+        "#0B2818",
+        "#FFD23F"
+      ],
+      [
+        "#2B0B2B",
+        "#00E5C4",
+        "#2B0B2B",
+        "#00E5C4"
+      ],
+      [
+        "#1A1A1A",
+        "#FF6B00",
+        "#1A1A1A",
+        "#FF6B00"
+      ],
+      [
+        "#0A1A3A",
+        "#FF61D2",
+        "#0A1A3A",
+        "#FF61D2"
+      ]
+    ],
+    "html": "<div class=\"p30\" style=\"background:var(--c1)\"><h4 style=\"color:var(--c2)\">DUO</h4><div class=\"dt-row\"><span class=\"dt-a\" style=\"background:var(--c2)\"></span><span class=\"dt-b\" style=\"background:var(--c1);border-color:var(--c2)\"></span></div><span class=\"dt-btn\" style=\"background:var(--c2);color:var(--c1)\">View →</span></div>"
+  }
+]

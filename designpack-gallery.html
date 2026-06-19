@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DesignPack AI — 트렌드 템플릿 갤러리</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#0a0a0c;--panel:#121217;--line:#22222b;--ink:#f4f4f0;--dim:#8a8a96;--mono:'JetBrains Mono',monospace;--sans:'Space Grotesk',sans-serif}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  header{padding:80px 0 40px;text-align:center;position:relative}
+  header::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 50% 0%,rgba(255,107,95,.12),transparent 70%);pointer-events:none}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
+  header h1{font-size:clamp(34px,6vw,64px);line-height:1.02;font-weight:700;letter-spacing:-.03em;max-width:820px;margin:0 auto}
+  header h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#ff6b5f}
+  header p{margin:24px auto 0;max-width:580px;color:var(--dim);font-size:16px;line-height:1.6}
+  .hint{margin:20px auto 0;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;color:var(--dim);border:1px solid var(--line);padding:8px 14px;border-radius:30px}
+  .hint b{color:#ff6b5f}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;padding:30px 0 100px}
+  @media(max-width:780px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;opacity:0;transform:translateY(24px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;transition:border-color .3s,transform .3s}
+  .card:hover{border-color:#3a3a48;transform:translateY(-4px)}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  .preview{height:230px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;transition:--c1 .3s}
+  .meta{padding:20px 22px 24px;border-top:1px solid var(--line)}
+  .meta .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+  .meta h3{font-size:21px;font-weight:700;letter-spacing:-.02em;margin:6px 0 8px}
+  .meta p{font-size:13.5px;color:var(--dim);line-height:1.55}
+  .pal-label{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.15em;text-transform:uppercase;margin-top:16px;display:block}
+  .palettes{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+  .pal-btn{display:flex;align-items:center;gap:10px;background:transparent;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer;transition:all .18s;width:100%}
+  .pal-btn:hover{border-color:#4a4a58;background:rgba(255,255,255,.02)}
+  .pal-btn.active{border-color:#ff6b5f;background:rgba(255,107,95,.08)}
+  .pal-btn .chips{display:flex;gap:5px;flex:1}
+  .pal-btn .chips span{width:24px;height:24px;border-radius:6px;border:1px solid rgba(255,255,255,.1)}
+  .pal-btn .pname{font-family:var(--mono);font-size:10.5px;color:var(--dim);min-width:62px;text-align:left}
+  .pal-btn.active .pname{color:#ff6b5f}
+  .usebtn{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--ink);background:transparent;border:1px solid var(--line);padding:9px 14px;border-radius:8px;cursor:pointer;transition:all .2s}
+  .usebtn:hover{background:#ff6b5f;border-color:#ff6b5f;color:#0a0a0c}
+
+  /* ===== preview structural styles (colors set inline via var) ===== */
+  .preview > div{width:100%;height:100%}
+
+  /* 1 Brutalism */
+  .p1{padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+  .p1 .b-top{display:flex;justify-content:space-between;align-items:flex-start}
+  .p1 .b-dot{width:14px;height:14px;border:2px solid;border-radius:50%}
+  .p1 .b-num{font-family:var(--mono);font-size:11px}
+  .p1 h4{font-family:'Archivo Black',sans-serif;font-size:36px;line-height:.9;text-transform:uppercase;letter-spacing:-.02em}
+  .p1 .b-row{display:flex;gap:8px}
+  .p1 .b-btn{border:2px solid;padding:6px 12px;font-family:var(--mono);font-size:11px}
+
+  /* 2 Glass */
+  .p2{position:relative}
+  .p2 .orb{position:absolute;width:140px;height:140px;border-radius:50%;filter:blur(8px);top:-30px;right:-20px;opacity:.8}
+  .p2 .glass{position:absolute;inset:34px;border-radius:18px;background:rgba(255,255,255,.14);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.35);padding:18px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+  .p2 .glass h4{font-size:18px;color:#fff;font-weight:500}
+  .p2 .pill{align-self:flex-start;background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:5px 14px;font-size:11px;color:#fff;backdrop-filter:blur(10px)}
+  .p2 .gbar{height:8px;border-radius:6px;background:rgba(255,255,255,.45)}
+
+  /* 3 Dark Premium */
+  .p3{padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+  .p3 .badge{font-family:var(--mono);font-size:10px;letter-spacing:.2em;border:1px solid;border-radius:20px;padding:4px 12px;margin-bottom:16px;text-transform:uppercase}
+  .p3 h4{font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+  .p3 .cta{margin-top:18px;font-size:12px;padding:8px 18px;border-radius:9px;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+
+  /* 4 Y2K */
+  .p4{padding:20px;display:flex;flex-direction:column;justify-content:space-between;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px}
+  .p4 h4{font-family:'Archivo Black',sans-serif;font-size:30px;text-transform:uppercase;line-height:.95}
+  .p4 .chrome{align-self:flex-start;font-family:var(--mono);font-size:11px;border:1px solid;padding:5px 12px}
+  .p4 .y2k-grid{display:flex;gap:6px}
+  .p4 .y2k-grid span{flex:1;height:6px}
+
+  /* 5 Nature */
+  .p5{padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+  .p5 h4{font-family:'Fraunces',serif;font-size:30px;line-height:1;font-weight:600}
+  .p5 .leaf{width:36px;height:36px;border-radius:50% 0 50% 50%}
+  .p5 p{font-size:12px;line-height:1.5;max-width:80%}
+  .p5 .e-row{display:flex;gap:8px;align-items:center}
+  .p5 .e-btn{font-family:'Fraunces',serif;font-size:12px;padding:7px 16px;border-radius:30px}
+  .p5 .e-dot{width:10px;height:10px;border-radius:50%}
+
+  /* 6 Dopamine */
+  .p6{padding:20px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+  .p6 .d-blob{position:absolute;width:120px;height:120px;border-radius:50%;bottom:-30px;left:-20px}
+  .p6 .d-star{position:absolute;font-size:60px;top:6px;right:14px;transform:rotate(12deg)}
+  .p6 h4{font-family:'Archivo Black',sans-serif;font-size:34px;line-height:.85;text-transform:uppercase;position:relative;z-index:2}
+  .p6 .d-btn{align-self:flex-start;font-family:'Archivo Black',sans-serif;font-size:13px;padding:9px 18px;border-radius:40px;position:relative;z-index:2;text-transform:uppercase}
+
+  /* 7 Bento */
+  .p7{padding:16px;display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:10px}
+  .p7 > div{border-radius:12px;border:1px solid;padding:12px;display:flex;flex-direction:column;justify-content:space-between}
+  .p7 .b-a{grid-row:span 2}
+  .p7 .b-a h4{font-size:20px;font-weight:700;letter-spacing:-.02em;color:#fff}
+  .p7 .stat{font-family:var(--mono);font-size:22px;font-weight:700;color:#fff}
+  .p7 .b-c .stat,.p7 .b-c .lbl{color:rgba(0,0,0,.7)}
+  .p7 .lbl{font-family:var(--mono);font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
+
+  /* 8 Kinetic */
+  .p8{padding:0;display:flex;align-items:center;overflow:hidden}
+  .p8 .ticker{white-space:nowrap;animation:slide 9s linear infinite}
+  .p8 .ticker span{font-family:'Archivo Black',sans-serif;font-size:52px;text-transform:uppercase;letter-spacing:-.02em;margin-right:10px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* 9 Neumorphism */
+  .p9{padding:26px;display:flex;flex-direction:column;justify-content:center;gap:16px;align-items:center}
+  .p9 .card9{border-radius:20px;padding:18px 22px;width:100%}
+  .p9 .card9 h4{font-size:17px;color:#4a5568;font-weight:500}
+  .p9 .toggle{width:54px;height:28px;border-radius:20px;position:relative}
+  .p9 .toggle span{position:absolute;width:20px;height:20px;border-radius:50%;top:4px;right:4px}
+  .p9 .nrow{display:flex;justify-content:space-between;align-items:center}
+
+  /* 10 Editorial */
+  .p10{padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+  .p10 .rule{height:2px}
+  .p10 .e-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+  .p10 h4{font-family:'Fraunces',serif;font-size:34px;line-height:1;font-weight:600;font-style:italic}
+  .p10 p{font-family:'Fraunces',serif;font-size:13px;line-height:1.5}
+
+  /* 11 Clay */
+  .p11{padding:24px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+  .p11 .clay-card{background:#fff;border-radius:26px;padding:18px 22px;display:flex;align-items:center;gap:14px}
+  .p11 .clay-ico{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;box-shadow:inset 2px 2px 5px rgba(255,255,255,.6)}
+  .p11 h4{font-size:22px;font-weight:700}
+  .p11 .clay-row{display:flex;gap:12px;align-items:center}
+  .p11 .clay-btn{color:#fff;font-weight:700;padding:12px 26px;border-radius:30px}
+  .p11 .clay-pill{flex:1;height:18px;border-radius:20px;background:#fff}
+
+  /* 12 Aurora */
+  .p12{position:relative;overflow:hidden;padding:30px;display:flex;align-items:center}
+  .p12 .g1,.p12 .g2{position:absolute;border-radius:50%;filter:blur(22px)}
+  .p12 .g1{width:200px;height:200px;top:-40px;left:-30px}
+  .p12 .g2{width:220px;height:220px;bottom:-60px;right:-40px;opacity:.8}
+  .p12 .aur-card{position:relative;z-index:2;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:20px;backdrop-filter:blur(10px)}
+  .p12 .aur-tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+  .p12 h4{font-size:24px;color:#fff;font-weight:700;margin-top:8px;line-height:1.05}
+
+  /* 13 Spatial */
+  .p13{position:relative;display:flex;align-items:center;justify-content:center;perspective:600px}
+  .p13 .sp{position:absolute;border-radius:16px;border:1px solid;backdrop-filter:blur(6px)}
+  .p13 .l1{width:150px;height:100px;transform:translate(-26px,18px) rotateY(18deg);opacity:.5}
+  .p13 .l2{width:170px;height:120px;transform:rotateY(8deg);display:flex;flex-direction:column;justify-content:center;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+  .p13 .l2 h4{font-size:20px}.p13 .l2 span{font-family:var(--mono);font-size:10px;margin-top:4px}
+  .p13 .l3{width:130px;height:80px;transform:translate(30px,-30px) rotateY(-14deg);opacity:.4}
+
+  /* 14 Anti-Design */
+  .p14{padding:18px;position:relative;overflow:hidden}
+  .p14 .ad-a{position:absolute;top:14px;right:14px;font-family:'Archivo Black';font-size:16px;padding:4px 8px;transform:rotate(8deg)}
+  .p14 h4{font-family:'Times New Roman',serif;font-size:42px;line-height:.85;font-weight:700;margin-top:30px;transform:rotate(-3deg)}
+  .p14 .ad-b{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:13px;padding:4px 10px;text-decoration:underline}
+  .p14 .ad-c{position:absolute;bottom:16px;right:20px;font-family:'Comic Sans MS',cursive;font-size:15px;transform:rotate(-6deg)}
+
+  /* 15 Swiss */
+  .p15{padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+  .p15 .sw-top{display:flex;gap:14px;font-family:var(--mono);font-size:11px}
+  .p15 h4{font-size:30px;font-weight:700;line-height:.98;letter-spacing:-.02em}
+  .p15 .sw-bar{height:5px;width:60%}
+
+  /* 16 Cyber HUD */
+  .p16{padding:22px;font-family:var(--mono);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+  .p16::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(transparent,transparent 3px,rgba(255,255,255,.03) 4px);pointer-events:none}
+  .p16 .hud-top{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.1em}
+  .p16 h4{font-size:30px;font-weight:700}
+  .p16 .hud-bars{display:flex;gap:5px;height:30px;align-items:flex-end}
+  .p16 .hud-bars span{flex:1;opacity:.75}
+  .p16 .hud-bars span:nth-child(1){height:60%}.p16 .hud-bars span:nth-child(2){height:100%}.p16 .hud-bars span:nth-child(3){height:40%}.p16 .hud-bars span:nth-child(4){height:80%}
+
+  /* 17 Pastel */
+  .p17{padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden}
+  .p17 .pd-blob{position:absolute;width:120px;height:120px;border-radius:50%;filter:blur(6px);opacity:.6;top:20px;right:30px}
+  .p17 h4{font-size:32px;font-weight:700;position:relative}
+  .p17 .pd-btn{margin-top:16px;background:#fff;font-size:13px;padding:9px 22px;border-radius:30px;box-shadow:0 8px 20px rgba(0,0,0,.1);position:relative}
+
+  /* 18 Vintage */
+  .p18{padding:24px;display:flex;flex-direction:column;justify-content:center;position:relative}
+  .p18 h4{font-family:'Archivo Black';font-size:46px;position:relative;letter-spacing:-.02em}
+  .p18 h4 .vp-shadow{position:absolute;left:3px;top:3px;mix-blend-mode:multiply;z-index:-1}
+  .p18 .vp-tag{font-family:var(--mono);font-size:11px;margin-top:8px}
+  .p18 .vp-line{height:3px;margin-top:14px;width:50%;mix-blend-mode:multiply}
+
+  /* 19 Chrome */
+  .p19{padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px}
+  .p19 .chrome-orb{width:80px;height:80px;border-radius:50%;box-shadow:0 0 40px rgba(200,200,210,.3)}
+  .p19 h4{font-family:'Archivo Black';font-size:30px;letter-spacing:.05em}
+  .p19 .chrome-tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em}
+
+  /* 20 Blob */
+  .p20{position:relative;overflow:hidden;display:flex;align-items:center;padding:26px}
+  .p20 .ob-blob{position:absolute;width:200px;height:200px;border-radius:42% 58% 63% 37%/45% 38% 62% 55%;right:-50px;top:-30px}
+  .p20 .ob-content{position:relative;z-index:2}
+  .p20 h4{font-size:30px;font-weight:700;line-height:1}
+  .p20 .ob-btn{display:inline-flex;margin-top:12px;width:42px;height:42px;border-radius:50%;align-items:center;justify-content:center;font-size:18px}
+
+  /* 21 High Contrast */
+  .p21{padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+  .p21 h4{font-family:'Archivo Black';font-size:54px;line-height:.85;letter-spacing:-.02em}
+  .p21 .hc-row{display:flex;justify-content:space-between;align-items:center}
+  .p21 .hc-btn{font-family:'Archivo Black';font-size:14px;padding:10px 20px}
+  .p21 .hc-arrow{font-size:30px}
+
+  /* 22 Gradient Mesh */
+  .p22{padding:26px;display:flex;flex-direction:column;justify-content:center}
+  .p22 h4{font-size:32px;font-weight:700;letter-spacing:-.02em}
+  .p22 .gm-btn{align-self:flex-start;margin-top:14px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);font-size:12px;padding:8px 18px;border-radius:30px;backdrop-filter:blur(8px)}
+
+  /* 23 Skeuomorphic */
+  .p23{padding:24px;display:flex;align-items:center;justify-content:center}
+  .p23 .sk-panel{border-radius:8px;padding:20px;width:100%;box-shadow:inset 0 1px 2px rgba(255,255,255,.5),0 6px 14px rgba(0,0,0,.5);border:1px solid}
+  .p23 h4{font-family:'Fraunces',serif;font-size:20px}
+  .p23 .sk-line{height:2px;margin-top:12px;border-bottom:1px solid rgba(255,255,255,.4)}
+
+  /* 24 Cyberpunk */
+  .p24{padding:24px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .p24 .cp-tag{font-family:var(--mono);font-size:11px;letter-spacing:.2em}
+  .p24 h4{font-family:'Archivo Black';font-size:38px;line-height:.85;margin-top:8px}
+  .p24 .cp-line{height:2px;margin-top:16px}
+
+  /* 25 Warm Minimal */
+  .p25{padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+  .p25 .wm-tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+  .p25 h4{font-family:'Fraunces',serif;font-size:34px;line-height:.95;font-weight:600}
+  .p25 .wm-btn{align-self:flex-start;font-size:12px;padding:9px 22px;border-radius:4px}
+
+  /* 26 3D */
+  .p26{padding:24px;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+  .p26 .d3-sphere{position:absolute;width:90px;height:90px;border-radius:50%;top:24px;right:30px;box-shadow:0 24px 40px rgba(0,0,0,.25)}
+  .p26 .d3-cube{position:absolute;width:50px;height:50px;border-radius:12px;top:90px;left:40px;transform:rotate(15deg);box-shadow:0 16px 30px rgba(0,0,0,.2)}
+  .p26 h4{font-size:28px;font-weight:700;position:relative}
+
+  /* 27 Blueprint */
+  .p27{padding:24px;position:relative;display:flex;flex-direction:column;justify-content:center;background-size:26px 26px}
+  .p27 .bp-cross{position:absolute;width:14px;height:14px}
+  .p27 .bp-cross span:nth-child(1){position:absolute;width:14px;height:1px;top:7px}
+  .p27 .bp-cross span:nth-child(2){position:absolute;height:14px;width:1px;left:7px}
+  .p27 .tl{top:16px;left:16px}.p27 .br{bottom:16px;right:16px}
+  .p27 h4{font-family:var(--mono);font-size:24px;letter-spacing:.05em}
+  .p27 .bp-coord{font-family:var(--mono);font-size:11px;margin-top:8px}
+
+  /* 28 Sticker */
+  .p28{padding:24px;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center}
+  .p28 .st-1{position:absolute;top:18px;left:18px;font-weight:700;font-size:12px;padding:5px 12px;border-radius:20px;transform:rotate(-10deg)}
+  .p28 .st-2{position:absolute;top:20px;right:24px;font-size:34px;transform:rotate(12deg)}
+  .p28 h4{font-size:30px;font-weight:700}
+  .p28 .st-btn{margin-top:14px;font-weight:700;font-size:14px;padding:10px 24px;border-radius:30px}
+
+  /* 29 Frost Light */
+  .p29{padding:24px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .p29 .fl-orb{position:absolute;width:130px;height:130px;border-radius:50%;top:-30px;left:-20px;opacity:.6;filter:blur(4px)}
+  .p29 .fl-glass{position:relative;z-index:2;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.8);border-radius:18px;padding:22px;backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.12)}
+  .p29 .fl-pill{font-family:var(--mono);font-size:10px;padding:4px 12px;border-radius:20px;letter-spacing:.1em}
+  .p29 h4{font-size:24px;font-weight:700;margin-top:10px;line-height:1.05}
+
+  /* 30 Duotone */
+  .p30{padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+  .p30 h4{font-family:'Archivo Black';font-size:46px;letter-spacing:-.02em;line-height:.85}
+  .p30 .dt-row{display:flex;gap:8px}
+  .p30 .dt-a{width:40px;height:40px;border-radius:50%}
+  .p30 .dt-b{width:40px;height:40px;border-radius:50%;border:3px solid}
+  .p30 .dt-btn{align-self:flex-start;font-weight:700;font-size:13px;padding:9px 20px;border-radius:4px}
+
+  /* filter bar */
+  .filter-bar{display:flex;flex-wrap:wrap;gap:8px;padding:20px 0 6px}
+  .ftag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--dim);background:transparent;border:1px solid var(--line);padding:6px 14px;border-radius:20px;cursor:pointer;transition:all .18s}
+  .ftag:hover{border-color:#4a4a58;color:var(--ink)}
+  .ftag.active{background:#ff6b5f;border-color:#ff6b5f;color:#0a0a0c}
+  /* favorites */
+  .fav-btn{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.4);border:none;color:rgba(255,255,255,.28);font-size:16px;width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s;backdrop-filter:blur(4px);z-index:10;line-height:1}
+  .fav-btn:hover{color:rgba(255,200,0,.8);background:rgba(0,0,0,.6)}
+  .fav-btn.active{color:#ffd700;background:rgba(0,0,0,.5)}
+  /* export button */
+  .exportbtn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--dim);background:transparent;border:1px solid var(--line);padding:9px 12px;border-radius:8px;cursor:pointer;transition:all .2s;white-space:nowrap}
+  .exportbtn:hover{border-color:#4a4a58;color:var(--ink)}
+  /* export modal */
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:1000;padding:24px}
+  .modal-overlay.open{display:flex}
+  .modal-box{background:#16161e;border:1px solid #2a2a36;border-radius:18px;width:100%;max-width:620px;max-height:88vh;display:flex;flex-direction:column;overflow:hidden}
+  .modal-head{display:flex;justify-content:space-between;align-items:flex-start;padding:22px 24px 0}
+  .modal-title-tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+  .modal-title-name{font-size:18px;font-weight:700;letter-spacing:-.02em;margin-top:4px}
+  .modal-close{background:transparent;border:1px solid var(--line);color:var(--dim);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .18s}
+  .modal-close:hover{border-color:#4a4a58;color:var(--ink)}
+  .modal-tabs{display:flex;gap:4px;padding:16px 24px 0;flex-wrap:wrap}
+  .mtab{font-family:var(--mono);font-size:11px;color:var(--dim);background:transparent;border:1px solid transparent;padding:5px 12px;border-radius:20px;cursor:pointer;transition:all .15s}
+  .mtab:hover{color:var(--ink)}
+  .mtab.active{background:rgba(255,107,95,.12);border-color:#ff6b5f;color:#ff6b5f}
+  .mtab.sep{margin-left:8px}
+  .modal-content{flex:1;overflow-y:auto;margin:12px 24px 0;background:#0d0d14;border:1px solid var(--line);border-radius:10px;padding:16px;font-family:var(--mono);font-size:12px;line-height:1.7;color:#c8c8d8;white-space:pre-wrap;min-height:160px}
+  .modal-footer{display:flex;justify-content:space-between;align-items:center;padding:14px 24px 20px;gap:12px}
+  .modal-hint{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+  .modal-copybtn{font-family:var(--mono);font-size:11px;color:var(--dim);background:transparent;border:1px solid var(--line);padding:8px 16px;border-radius:8px;cursor:pointer;transition:all .2s;white-space:nowrap;flex-shrink:0}
+  .modal-copybtn:hover{border-color:#4a4a58;color:var(--ink)}
+  .modal-copybtn.done{border-color:#22c55e;color:#22c55e}
+
+  /* custom color slot */
+  .custom-trigger .chips span{border:2px dashed #3a3a48;background:transparent}
+  .custom-panel{display:none;flex-direction:column;gap:8px;margin-top:8px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .custom-panel.open{display:flex}
+  .custom-row{display:flex;align-items:center;gap:8px}
+  .custom-lbl{font-family:var(--mono);font-size:10px;color:var(--dim);width:18px;text-align:center}
+  .custom-swatch{width:28px;height:28px;border:none;border-radius:6px;cursor:pointer;padding:1px;background:transparent;flex-shrink:0;-webkit-appearance:none;appearance:none}
+  .custom-hex{flex:1;min-width:0;background:#1a1a22;border:1px solid var(--line);border-radius:6px;color:var(--ink);font-family:var(--mono);font-size:10.5px;padding:4px 8px}
+  /* action row */
+  .action-row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+  .action-row .usebtn{margin-top:0}
+  .copybtn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--dim);background:transparent;border:1px solid var(--line);padding:9px 12px;border-radius:8px;cursor:pointer;transition:all .2s;white-space:nowrap}
+  .copybtn:hover{border-color:#4a4a58;color:var(--ink)}
+  .copybtn.done{border-color:#22c55e;color:#22c55e}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px}
+  footer b{color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">DesignPack AI · Sample Gallery</div>
+    <h1>지금 가장 <em>트렌디한</em> 30가지 디자인팩</h1>
+    <p>한 줄 입력으로 받게 될 결과물의 미리보기입니다. 2026년 현재 가장 많이 쓰이는 스타일을 그대로 담았습니다.</p>
+    <div class="hint">⌁ 각 카드의 <b>5가지 컬러 조합</b>을 눌러 실시간으로 바꿔보세요</div>
+  </div>
+</header>
+<div class="wrap"><div class="grid" id="grid"></div></div>
+<footer class="wrap">마음에 드는 스타일과 컬러를 골라 <b>내 서비스 정보로 생성</b>하세요 — DesignPack AI 1.0</footer>
+<script>
+const PAL_NAMES = ["시그니처","쿨","프레시","웜","비비드"];
+const templates = [{"n": "01", "tag": "Tactile Brutalism", "name": "Raw Grid", "desc": "1px 보더, 단단한 기하학, 강한 산세리프. 엔지니어링된 정밀함을 표현하는 2026년 핵심 트렌드.", "palettes": [["#111111", "#FF4D2E", "#ECECE4", "#FFFFFF"], ["#14110F", "#3D5AFE", "#EDEAE3", "#FFFFFF"], ["#1A1A1A", "#00C566", "#F0EFEA", "#FFFFFF"], ["#121212", "#FFB300", "#EAE7DF", "#FFFFFF"], ["#0F0F14", "#E91E63", "#ECEAE6", "#FFFFFF"]], "html": "<div class=\"p1\" style=\"background:var(--c3)\"><div class=\"b-top\"><div class=\"b-dot\" style=\"border-color:var(--c1)\"></div><span class=\"b-num\" style=\"color:var(--c1)\">01 / SYS</span></div><h4 style=\"color:var(--c1)\">Build<br>Bolder</h4><div class=\"b-row\"><span class=\"b-btn fill\" style=\"background:var(--c2);color:var(--c4);border-color:var(--c2)\">Start</span><span class=\"b-btn\" style=\"background:var(--c4);color:var(--c1);border-color:var(--c1)\">Docs</span></div></div>"}, {"n": "02", "tag": "Refined Glass", "name": "Liquid Glass", "desc": "제어된 투명도와 블러, 부드러운 깊이감. Apple Liquid Glass가 주도하는 정제된 글래스모피즘.", "palettes": [["#5B4BFF", "#C04BFF", "#FF6FB5", "#FFD36E"], ["#0EA5E9", "#6366F1", "#A855F7", "#FBBF24"], ["#06B6D4", "#10B981", "#34D399", "#FDE047"], ["#F43F5E", "#FB7185", "#C084FC", "#FDE68A"], ["#1E3A8A", "#3B82F6", "#60A5FA", "#F0ABFC"]], "html": "<div class=\"p2\" style=\"background:linear-gradient(135deg,var(--c1),var(--c2) 60%,var(--c3))\"><span class=\"orb\" style=\"background:var(--c4)\"></span><div class=\"glass\"><span class=\"pill\">New · 2026</span><h4>Clarity in<br>every layer</h4><div class=\"gbar\"></div></div></div>"}, {"n": "03", "tag": "Dark Premium", "name": "Linear Dark", "desc": "딥 블랙 배경에 그라데이션 텍스트와 정교한 글로우. SaaS·개발툴이 선호하는 프리미엄 무드.", "palettes": [["#0b0b14", "#5b4bff", "#9b8bff", "#ffffff"], ["#0A0F1E", "#06B6D4", "#67E8F9", "#ffffff"], ["#0E0A14", "#A855F7", "#D8B4FE", "#ffffff"], ["#0B1410", "#10B981", "#6EE7B7", "#ffffff"], ["#120B0B", "#F43F5E", "#FDA4AF", "#ffffff"]], "html": "<div class=\"p3\" style=\"background:radial-gradient(120% 100% at 50% 0%,color-mix(in srgb,var(--c2) 18%,var(--c1)),var(--c1))\"><span class=\"badge\" style=\"color:var(--c3);border-color:color-mix(in srgb,var(--c2) 40%,var(--c1))\">v2.0 Launch</span><h4 style=\"background:linear-gradient(180deg,var(--c4),color-mix(in srgb,var(--c4) 50%,var(--c1)));-webkit-background-clip:text;background-clip:text;color:transparent\">Ship faster.<br>Look sharper.</h4><span class=\"cta\" style=\"background:linear-gradient(180deg,var(--c3),var(--c2));color:var(--c4)\">Get started →</span></div>"}, {"n": "04", "tag": "Y2K Retrofuturism", "name": "Neon Chrome", "desc": "네온 그라데이션, 크롬 텍스처, 그리드 배경. Y2K 노스탤지어 기반의 사이버 미학.", "palettes": [["#00E5FF", "#FF00C8", "#05010f", "#ffffff"], ["#39FF14", "#FF6EC7", "#0A0014", "#ffffff"], ["#FFD500", "#FF2E63", "#0B0410", "#ffffff"], ["#00FFC6", "#7C4DFF", "#05030F", "#ffffff"], ["#FF8A00", "#00B3FF", "#0C0610", "#ffffff"]], "html": "<div class=\"p4\" style=\"background-color:var(--c3)\"><span class=\"chrome\" style=\"color:var(--c1);border-color:var(--c1)\">◆ SYSTEM ONLINE</span><h4 style=\"background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent\">Future<br>Loading</h4><div class=\"y2k-grid\"><span style=\"background:linear-gradient(90deg,var(--c2),var(--c1))\"></span><span style=\"background:linear-gradient(90deg,var(--c2),var(--c1))\"></span><span style=\"background:linear-gradient(90deg,var(--c2),var(--c1))\"></span></div></div>"}, {"n": "05", "tag": "Nature Distilled", "name": "Earthy Calm", "desc": "클레이·우드·소일의 뮤트 톤과 세리프 타입. Pantone 2026 무드의 따뜻하고 차분한 스타일.", "palettes": [["#E8E2D5", "#4A4032", "#8B9474", "#7A6E5A"], ["#EDE4D3", "#3F3A30", "#A8B18C", "#857A65"], ["#E6E8E0", "#33403A", "#7FA08C", "#6E7A6E"], ["#F0E6D6", "#4D3B2F", "#C2956A", "#8A7559"], ["#E4E6E2", "#2F3A33", "#9CAE8E", "#6F7A6B"]], "html": "<div class=\"p5\" style=\"background:var(--c1)\"><div class=\"e-row\"><div class=\"leaf\" style=\"background:var(--c3)\"></div></div><h4 style=\"color:var(--c2)\">Grow<br>slowly</h4><p style=\"color:var(--c4)\">자연에서 추출한 톤으로 만든 차분한 인터페이스.</p><div class=\"e-row\"><span class=\"e-btn\" style=\"background:var(--c2);color:var(--c1)\">Explore</span><span class=\"e-dot\" style=\"background:var(--c3)\"></span><span class=\"e-dot\" style=\"background:var(--c4)\"></span></div></div>"}, {"n": "06", "tag": "Dopamine Max", "name": "Bold & Fun", "desc": "고채도 컬러 충돌, 과감한 도형, 두꺼운 타입. 라이프스타일·뷰티 브랜드의 도파민 디자인.", "palettes": [["#FFE600", "#0029FF", "#FF2D95", "#0029FF"], ["#FF5400", "#1A0DAB", "#00E0B8", "#1A0DAB"], ["#C6FF00", "#FF006E", "#3A0CA3", "#FF006E"], ["#00E5FF", "#FF006E", "#FFBE0B", "#FF006E"], ["#FF61D2", "#0F00FF", "#FFEC00", "#0F00FF"]], "html": "<div class=\"p6\" style=\"background:var(--c1)\"><span class=\"d-blob\" style=\"background:var(--c3)\"></span><span class=\"d-star\" style=\"color:var(--c4)\">★</span><h4 style=\"color:var(--c2)\">Make<br>It Pop</h4><span class=\"d-btn\" style=\"background:var(--c2);color:var(--c1)\">Yes!! →</span></div>"}, {"n": "07", "tag": "Bento Grid", "name": "Modular Blocks", "desc": "정보를 사분면으로 구획하는 모듈형 그리드. 대시보드·포트폴리오 스캔에 최적화된 구조.", "palettes": [["#0e0e12", "#FF6B5F", "#16161d", "#23232c"], ["#0B0F14", "#38BDF8", "#141A22", "#26303B"], ["#0E0B14", "#A78BFA", "#171221", "#2A2238"], ["#0B120E", "#34D399", "#121A15", "#243029"], ["#13100B", "#FBBF24", "#1C1811", "#322B1C"]], "html": "<div class=\"p7\" style=\"background:var(--c1)\"><div class=\"b-a\" style=\"background:linear-gradient(160deg,var(--c3),var(--c1));border-color:var(--c4)\"><span class=\"lbl\">Overview</span><h4>Bento<br>System</h4></div><div class=\"b-b\" style=\"background:var(--c3);border-color:var(--c4)\"><span class=\"lbl\">Users</span><span class=\"stat\">12.4k</span></div><div class=\"b-c\" style=\"background:var(--c2);border-color:var(--c2)\"><span class=\"lbl\">Growth</span><span class=\"stat\">+38%</span></div></div>"}, {"n": "08", "tag": "Kinetic Type", "name": "Motion Text", "desc": "움직이는 대형 타이포그래피가 화면을 이끄는 구조. 타입 자체가 레이아웃이 되는 표현형 트렌드.", "palettes": [["#111111", "#C6FF00", "#ffffff", "#000000"], ["#0E0E10", "#FF3B3B", "#ffffff", "#000000"], ["#101418", "#00E5FF", "#ffffff", "#000000"], ["#14100E", "#FF8A00", "#ffffff", "#000000"], ["#0F0E14", "#B388FF", "#ffffff", "#000000"]], "html": "<div class=\"p8\" style=\"background:var(--c1)\"><div class=\"ticker\"><span style=\"-webkit-text-stroke:1px var(--c3);color:transparent\">Design</span><span class=\"fill\" style=\"color:var(--c2)\">Faster</span><span style=\"-webkit-text-stroke:1px var(--c3);color:transparent\">Design</span><span class=\"fill\" style=\"color:var(--c2)\">Faster</span></div></div>"}, {"n": "09", "tag": "Soft Neumorphism", "name": "Soft Tactile", "desc": "부드러운 양각·음각 그림자로 만든 촉각적 UI. 토글·카드 중심의 차분한 인터랙션.", "palettes": [["#E4E9F0", "#7B8CFF", "#c2c8d4", "#ffffff"], ["#ECEFF4", "#5EC2A8", "#cdd3da", "#ffffff"], ["#F0EBF5", "#B07BFF", "#d6cde0", "#ffffff"], ["#F2ECE4", "#FF9F6B", "#dcd2c6", "#ffffff"], ["#E8ECEA", "#4FB0C6", "#cbd2cf", "#ffffff"]], "html": "<div class=\"p9\" style=\"background:var(--c1)\"><div class=\"card9\" style=\"background:var(--c1);box-shadow:8px 8px 18px var(--c3),-8px -8px 18px var(--c4)\"><div class=\"nrow\"><h4>Notifications</h4><div class=\"toggle\" style=\"background:var(--c1);box-shadow:inset 4px 4px 8px var(--c3),inset -4px -4px 8px var(--c4)\"><span style=\"background:var(--c2)\"></span></div></div></div><div class=\"card9\" style=\"background:var(--c1);box-shadow:8px 8px 18px var(--c3),-8px -8px 18px var(--c4)\"><div class=\"nrow\"><h4>Dark mode</h4><div class=\"toggle\" style=\"background:var(--c1);box-shadow:inset 4px 4px 8px var(--c3),inset -4px -4px 8px var(--c4)\"><span style=\"background:var(--c2)\"></span></div></div></div></div>"}, {"n": "10", "tag": "Editorial Serif", "name": "Magazine", "desc": "이탤릭 세리프와 룰 라인으로 구성한 편집 디자인. 텍스트에 권위와 무드를 더하는 스타일.", "palettes": [["#FBF8F1", "#1a1a1a", "#555555", "#1a1a1a"], ["#F7F3EC", "#202020", "#5A5A5A", "#B91C1C"], ["#F4F1EA", "#1C1C1C", "#585858", "#1D4ED8"], ["#FAF6EF", "#181818", "#525252", "#047857"], ["#F8F4ED", "#1A1A1A", "#565656", "#B45309"]], "html": "<div class=\"p10\" style=\"background:var(--c1)\"><div class=\"rule\" style=\"background:var(--c4)\"></div><div class=\"e-top\" style=\"color:var(--c2)\"><span>Issue 01</span><span>2026</span></div><h4 style=\"color:var(--c2)\">The art of<br>restraint</h4><p style=\"color:var(--c3)\">여백과 타이포그래피만으로 완성하는 우아함.</p></div>"}, {"n": "11", "tag": "Claymorphism", "name": "Soft Clay", "desc": "부풀어 오른 둥근 요소와 레이어드 그림자, 따뜻한 파스텔. 친근하고 만지고 싶은 3D 감각.", "palettes": [["#F0E6FF", "#A88BFF", "#FF9EC4", "#FFD27A"], ["#E6F4FF", "#7BC4FF", "#9EE6C4", "#FFE08A"], ["#FFEDE6", "#FFA07B", "#FFC49E", "#FFE0B0"], ["#ECE6FF", "#8B95FF", "#B6A0FF", "#FFB0E0"], ["#E6FFF4", "#6FE0C4", "#A0E6FF", "#FFE89E"]], "html": "<div class=\"p11\" style=\"background:linear-gradient(135deg,var(--c1),color-mix(in srgb,var(--c3) 30%,var(--c1)))\"><div class=\"clay-card\" style=\"box-shadow:6px 6px 16px color-mix(in srgb,var(--c2) 50%,transparent),inset 2px 2px 6px rgba(255,255,255,.9)\"><div class=\"clay-ico\" style=\"background:linear-gradient(135deg,var(--c2),var(--c3))\">◍</div><h4 style=\"color:color-mix(in srgb,var(--c2) 70%,#222)\">Hello!</h4></div><div class=\"clay-row\"><span class=\"clay-btn\" style=\"background:linear-gradient(135deg,var(--c3),var(--c4));box-shadow:5px 5px 14px color-mix(in srgb,var(--c3) 50%,transparent)\">Go</span><span class=\"clay-pill\" style=\"box-shadow:inset 3px 3px 7px color-mix(in srgb,var(--c2) 35%,transparent)\"></span></div></div>"}, {"n": "12", "tag": "Aurora UI", "name": "Mesh Glow", "desc": "북극광에서 영감받은 그라데이션 메시와 은은한 발광 배경. 부드러운 색 전환의 분위기형 스타일.", "palettes": [["#7C5CFF", "#22D3EE", "#FF7AC8", "#0a0a1a"], ["#34D399", "#22D3EE", "#A78BFA", "#06121A"], ["#FB7185", "#F472B6", "#C084FC", "#140A14"], ["#38BDF8", "#818CF8", "#E879F9", "#080A18"], ["#FBBF24", "#FB923C", "#F472B6", "#140C08"]], "html": "<div class=\"p12\" style=\"background:var(--c4)\"><span class=\"g1\" style=\"background:radial-gradient(circle,var(--c1),transparent 70%)\"></span><span class=\"g2\" style=\"background:radial-gradient(circle,var(--c2),transparent 70%)\"></span><div class=\"aur-card\"><span class=\"aur-tag\" style=\"color:var(--c3)\">Aurora</span><h4>Glow in<br>the dark</h4></div></div>"}, {"n": "13", "tag": "Spatial / AR", "name": "Depth Layers", "desc": "공간 컴퓨팅 기반 반투명 레이어와 깊이 표현. Vision Pro·AR 환경을 위한 디자인 언어.", "palettes": [["#0c1430", "#5EE1FF", "#ffffff", "#1b2a55"], ["#140C30", "#B98BFF", "#ffffff", "#2A1B55"], ["#0C1A14", "#5EFFB0", "#ffffff", "#1B3A2A"], ["#1A0C18", "#FF8AD0", "#ffffff", "#3A1B33"], ["#0C1024", "#8AA0FF", "#ffffff", "#1B2147"]], "html": "<div class=\"p13\" style=\"background:radial-gradient(120% 120% at 30% 20%,var(--c4),var(--c1))\"><div class=\"sp l1\" style=\"border-color:color-mix(in srgb,var(--c2) 40%,transparent);background:color-mix(in srgb,var(--c2) 6%,transparent)\"></div><div class=\"sp l2\" style=\"border-color:color-mix(in srgb,var(--c2) 40%,transparent);background:color-mix(in srgb,var(--c2) 12%,transparent)\"><h4 style=\"color:var(--c3)\">Spatial</h4><span style=\"color:var(--c2)\">Layer 02</span></div><div class=\"sp l3\" style=\"border-color:color-mix(in srgb,var(--c2) 40%,transparent);background:color-mix(in srgb,var(--c2) 6%,transparent)\"></div></div>"}, {"n": "14", "tag": "Anti-Design", "name": "Raw Chaos", "desc": "의도적 무질서, 충돌하는 폰트, 깨진 그리드. AI식 완벽주의에 대한 반동의 미학.", "palettes": [["#fafafa", "#FF0000", "#0000FF", "#111111"], ["#FFFEF2", "#FF1493", "#000000", "#FF1493"], ["#F0F0F0", "#00AA00", "#FF6600", "#111111"], ["#FFF8E7", "#8B00FF", "#FF0000", "#111111"], ["#EFEFEF", "#FF3300", "#0099FF", "#111111"]], "html": "<div class=\"p14\" style=\"background:var(--c1)\"><span class=\"ad-a\" style=\"background:var(--c2);color:#fff\">SALE!!!</span><h4 style=\"color:var(--c4)\">why<br>so neat?</h4><span class=\"ad-b\" style=\"background:var(--c3);color:#fff\">click here →</span><span class=\"ad-c\" style=\"color:var(--c2)\">★ new ★</span></div>"}, {"n": "15", "tag": "Mono Minimal", "name": "Swiss Grid", "desc": "단색 팔레트, 엄격한 그리드, 충분한 여백. 스위스 인터내셔널 타이포 기반의 정제된 미니멀.", "palettes": [["#ffffff", "#111111", "#e5e5e5", "#FF3B00"], ["#FAFAFA", "#0A0A0A", "#E2E2E2", "#0047FF"], ["#FFFFFF", "#141414", "#E6E6E6", "#00A86B"], ["#F8F8F6", "#161616", "#E4E2DD", "#7C3AED"], ["#FBFBFB", "#0F0F0F", "#E0E0E0", "#FF006E"]], "html": "<div class=\"p15\" style=\"background:var(--c1)\"><div class=\"sw-top\" style=\"color:var(--c2)\"><span>01</span><span>—</span><span>2026</span></div><h4 style=\"color:var(--c2)\">Less,<br>arranged<br>better.</h4><div class=\"sw-bar\" style=\"background:var(--c4)\"></div></div>"}, {"n": "16", "tag": "Cyber HUD", "name": "Tech Console", "desc": "모노스페이스 데이터, 스캔라인, 형광 액센트. 콘솔·터미널 감성의 테크니컬 인터페이스.", "palettes": [["#04130d", "#00FF9C", "#0affc8", "#073527"], ["#0A0E1A", "#00D4FF", "#5EE1FF", "#0A2540"], ["#140A04", "#FFB000", "#FFD45E", "#3A2700"], ["#0E0414", "#D400FF", "#E85EFF", "#2A0735"], ["#13040A", "#FF0055", "#FF5E8A", "#350714"]], "html": "<div class=\"p16\" style=\"background:var(--c1)\"><div class=\"hud-top\" style=\"color:var(--c2)\"><span>● SYS_OK</span><span>v2.6.0</span></div><h4 style=\"color:var(--c3);text-shadow:0 0 12px color-mix(in srgb,var(--c3) 60%,transparent)\">// READY_</h4><div class=\"hud-bars\"><span style=\"background:var(--c2)\"></span><span style=\"background:var(--c2)\"></span><span style=\"background:var(--c2)\"></span><span style=\"background:var(--c2)\"></span></div></div>"}, {"n": "17", "tag": "Pastel Dream", "name": "Soft Candy", "desc": "여린 파스텔 그라데이션과 둥근 형태, 가벼운 무드. 웰니스·뷰티 브랜드의 부드러운 감성.", "palettes": [["#FFE5EC", "#BDE0FE", "#C8B6FF", "#8B6BB0"], ["#FFF0E5", "#FFE5F0", "#FFC4D6", "#B06B85"], ["#E5FFF0", "#E5F0FF", "#B6E0FF", "#6B8BB0"], ["#F5E5FF", "#FFE5F5", "#E0B6FF", "#8B6BB0"], ["#FFFBE5", "#E5FFEC", "#C4FFD6", "#6BB085"]], "html": "<div class=\"p17\" style=\"background:linear-gradient(135deg,var(--c1),var(--c2))\"><div class=\"pd-blob\" style=\"background:var(--c3)\"></div><h4 style=\"color:var(--c4)\">breathe</h4><span class=\"pd-btn\" style=\"color:var(--c4)\">soft start</span></div>"}, {"n": "18", "tag": "Vintage Print", "name": "Risograph", "desc": "리소 인쇄 질감, 오버프린트 컬러, 미스레지스터 효과. 아날로그 감성의 빈티지 프린트룩.", "palettes": [["#F3ECD9", "#FF5A36", "#2B4FFF", "#1a1a1a"], ["#F0EAD6", "#E8336D", "#00A88A", "#1a1a1a"], ["#EDE8DB", "#FF8C00", "#6A4FFF", "#1a1a1a"], ["#F2EFE2", "#D6006E", "#2BA84A", "#1a1a1a"], ["#EFE9D8", "#0066FF", "#FF4D6D", "#1a1a1a"]], "html": "<div class=\"p18\" style=\"background:var(--c1)\"><h4 data-t=\"PRESS\" style=\"color:var(--c2)\"><span class=\"vp-shadow\" style=\"color:var(--c3)\">PRESS</span>PRESS</h4><span class=\"vp-tag\" style=\"color:var(--c4)\">Riso · 2 color</span><div class=\"vp-line\" style=\"background:var(--c3)\"></div></div>"}, {"n": "19", "tag": "Liquid Chrome", "name": "Metal Flow", "desc": "흐르는 크롬·메탈릭 텍스처와 반사. 미래적이고 고급스러운 메탈 표면 표현.", "palettes": [["#0a0a0a", "#e8e8f0", "#8a8a9a", "#ffffff"], ["#0A0A14", "#C4C8FF", "#7A7E9A", "#ffffff"], ["#140A0A", "#FFD4C4", "#9A7A7A", "#ffffff"], ["#0A140E", "#C4FFD8", "#7A9A86", "#ffffff"], ["#100A14", "#E0C4FF", "#8A7A9A", "#ffffff"]], "html": "<div class=\"p19\" style=\"background:var(--c1)\"><div class=\"chrome-orb\" style=\"background:linear-gradient(135deg,var(--c4),var(--c3) 40%,var(--c1) 60%,var(--c2))\"></div><h4 style=\"background:linear-gradient(180deg,var(--c4),var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent\">FLUID</h4><span class=\"chrome-tag\" style=\"color:var(--c3)\">METAL · 2026</span></div>"}, {"n": "20", "tag": "Organic Blob", "name": "Fluid Shapes", "desc": "유기적인 블롭 형태와 자연스러운 곡선, 부드러운 흐름. 딱딱한 그리드를 벗어난 유동 레이아웃.", "palettes": [["#FF7E5F", "#FEB47B", "#ffffff", "#2d2d2d"], ["#6A82FB", "#A0C4FF", "#ffffff", "#2d2d2d"], ["#43E97B", "#38F9D7", "#ffffff", "#1d3d2d"], ["#C471F5", "#FA71CD", "#ffffff", "#2d2d2d"], ["#FA709A", "#FEE140", "#ffffff", "#2d2d2d"]], "html": "<div class=\"p20\" style=\"background:var(--c3)\"><div class=\"ob-blob\" style=\"background:linear-gradient(135deg,var(--c1),var(--c2))\"></div><div class=\"ob-content\"><h4 style=\"color:var(--c4)\">Flow<br>freely</h4><span class=\"ob-btn\" style=\"background:var(--c4);color:var(--c3)\">→</span></div></div>"}, {"n": "21", "tag": "High Contrast", "name": "Mono Pop", "desc": "순수한 흑백에 단 하나의 강렬한 액센트. 접근성과 대담함을 동시에 잡는 고대비 디자인.", "palettes": [["#000000", "#ffffff", "#FFE600", "#000000"], ["#000000", "#ffffff", "#00FF95", "#000000"], ["#000000", "#ffffff", "#FF3B3B", "#000000"], ["#000000", "#ffffff", "#00C4FF", "#000000"], ["#1A1A1A", "#ffffff", "#FF6B00", "#1A1A1A"]], "html": "<div class=\"p21\" style=\"background:var(--c1)\"><h4 style=\"color:var(--c2)\">BOLD</h4><div class=\"hc-row\"><span class=\"hc-btn\" style=\"background:var(--c3);color:var(--c1)\">START</span><span class=\"hc-arrow\" style=\"color:var(--c3)\">↗</span></div></div>"}, {"n": "22", "tag": "Gradient Mesh", "name": "Color Wash", "desc": "풀스크린 라디얼·리니어 그라데이션이 겹쳐진 컬러 워시. 히어로 섹션의 분위기 메이커.", "palettes": [["#FF6CAB", "#7366FF", "#00D4FF", "#ffffff"], ["#F9D423", "#FF4E50", "#A044FF", "#ffffff"], ["#43CEA2", "#185A9D", "#7F00FF", "#ffffff"], ["#FF512F", "#DD2476", "#1FA2FF", "#ffffff"], ["#11998E", "#38EF7D", "#FC466B", "#ffffff"]], "html": "<div class=\"p22\" style=\"background:radial-gradient(circle at 20% 20%,var(--c1),transparent 50%),radial-gradient(circle at 80% 30%,var(--c2),transparent 50%),radial-gradient(circle at 50% 90%,var(--c3),transparent 55%),#1a1a2e\"><h4 style=\"color:var(--c4)\">Spectrum</h4><span class=\"gm-btn\" style=\"color:var(--c4)\">Discover</span></div>"}, {"n": "23", "tag": "Skeuomorphic", "name": "Real Texture", "desc": "가죽·종이·금속 등 실물 질감 재현. 익숙함과 촉각성을 주는 사실적 인터페이스.", "palettes": [["#3d2b1f", "#c9a876", "#1a120b", "#e8d5b0"], ["#2B2B33", "#A8B0C0", "#14141A", "#D8DEE9"], ["#1F2D2B", "#7BB0A8", "#0B1412", "#C4E0DA"], ["#33241F", "#C99876", "#1A0F0B", "#E8C9B0"], ["#2D1F2B", "#C076A8", "#140B12", "#E8B0D8"]], "html": "<div class=\"p23\" style=\"background:var(--c1)\"><div class=\"sk-panel\" style=\"background:linear-gradient(135deg,var(--c4),var(--c2));border-color:color-mix(in srgb,var(--c3) 60%,var(--c2))\"><h4 style=\"color:var(--c3)\">Notebook</h4><div class=\"sk-line\" style=\"background:color-mix(in srgb,var(--c3) 30%,transparent)\"></div><div class=\"sk-line\" style=\"background:color-mix(in srgb,var(--c3) 30%,transparent)\"></div></div></div>"}, {"n": "24", "tag": "Neon Cyberpunk", "name": "Night City", "desc": "딥 다크 위 네온 핑크·시안 글로우와 글리치. 사이버펑크 분위기의 강렬한 야간 UI.", "palettes": [["#0d0221", "#FF2A6D", "#05D9E8", "#D1F7FF"], ["#0A0014", "#FF6B00", "#00FFC6", "#D1FFF4"], ["#0E0A1A", "#B026FF", "#00E5FF", "#E8D1FF"], ["#140208", "#FF0040", "#FFD500", "#FFF4D1"], ["#02140E", "#00FF95", "#FF2AD4", "#D1FFE8"]], "html": "<div class=\"p24\" style=\"background:var(--c1)\"><span class=\"cp-tag\" style=\"color:var(--c3)\">// 2099</span><h4 style=\"color:var(--c2);text-shadow:0 0 16px color-mix(in srgb,var(--c2) 70%,transparent),3px 3px 0 var(--c3)\">NEO<br>TOKYO</h4><div class=\"cp-line\" style=\"background:linear-gradient(90deg,var(--c2),var(--c3));box-shadow:0 0 10px var(--c3)\"></div></div>"}, {"n": "25", "tag": "Warm Minimal", "name": "Cozy Clean", "desc": "따뜻한 크림·테라코타 톤의 미니멀. 차가운 화이트를 피한 포근한 정돈된 무드.", "palettes": [["#F5EFE6", "#D9774E", "#3D3833", "#A89A85"], ["#F2EDE4", "#C25E45", "#33302B", "#A0917C"], ["#F0EBE2", "#B5854A", "#363029", "#9C8E75"], ["#F4EFE8", "#A86B5C", "#383330", "#A09385"], ["#F6F0E7", "#8A9A6B", "#363B30", "#959C85"]], "html": "<div class=\"p25\" style=\"background:var(--c1)\"><span class=\"wm-tag\" style=\"color:var(--c4)\">since 2026</span><h4 style=\"color:var(--c3)\">Stay<br>warm</h4><span class=\"wm-btn\" style=\"background:var(--c2);color:var(--c1)\">Enter</span></div>"}, {"n": "26", "tag": "3D Render", "name": "Soft 3D", "desc": "부드럽게 렌더된 3D 오브젝트와 그림자. 깊이와 입체감으로 시선을 끄는 비주얼.", "palettes": [["#EEF1FF", "#6C5CE7", "#FD79A8", "#A29BFE"], ["#EFFCF5", "#16A085", "#FFB86B", "#5EE8C0"], ["#FFF0EE", "#FF6B6B", "#FFD93D", "#FFA0A0"], ["#F0F4FF", "#3B82F6", "#F472B6", "#93C5FD"], ["#F5EEFF", "#9B59B6", "#1ABC9C", "#C7A0E8"]], "html": "<div class=\"p26\" style=\"background:linear-gradient(160deg,var(--c1),#fff)\"><div class=\"d3-sphere\" style=\"background:radial-gradient(circle at 30% 25%,#fff,var(--c4) 50%,var(--c2))\"></div><div class=\"d3-cube\" style=\"background:linear-gradient(135deg,var(--c3),color-mix(in srgb,var(--c3) 60%,#fff))\"></div><h4 style=\"color:var(--c2)\">Render</h4></div>"}, {"n": "27", "tag": "Grid Lines", "name": "Blueprint", "desc": "청사진 같은 그리드 라인과 좌표, 테크니컬 드로잉 감성. 정밀하고 구조적인 레이아웃.", "palettes": [["#0a1f3c", "#4FA8FF", "#9FD0FF", "#021024"], ["#0A2A1F", "#4FFFB0", "#9FFFD0", "#021810"], ["#2A0A1F", "#FF4F9F", "#FF9FCF", "#180210"], ["#1F1A0A", "#FFC44F", "#FFE09F", "#100C02"], ["#1A0A2A", "#A04FFF", "#CF9FFF", "#0E0218"]], "html": "<div class=\"p27\" style=\"background-color:var(--c1);background-image:linear-gradient(color-mix(in srgb,var(--c2) 18%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--c2) 18%,transparent) 1px,transparent 1px)\"><div class=\"bp-cross tl\"><span style=\"background:var(--c2)\"></span><span style=\"background:var(--c2)\"></span></div><div class=\"bp-cross br\"><span style=\"background:var(--c2)\"></span><span style=\"background:var(--c2)\"></span></div><h4 style=\"color:var(--c3)\">BLUEPRINT</h4><span class=\"bp-coord\" style=\"color:var(--c2)\">x:240 y:180</span></div>"}, {"n": "28", "tag": "Playful Sticker", "name": "Sticker Pop", "desc": "스티커처럼 떠 있는 둥근 요소와 발랄한 컬러, 그림자. 친근하고 장난기 있는 인터페이스.", "palettes": [["#FFF8E1", "#FF6B9D", "#6BCB77", "#4D96FF"], ["#E1F8FF", "#FF9F45", "#9B5DE5", "#00BBF9"], ["#FFE1F0", "#F15BB5", "#FEE440", "#00BBF9"], ["#E8FFE1", "#FF4D6D", "#FFC300", "#5DADE2"], ["#FFF0E1", "#7B2FF7", "#F107A3", "#41E2BA"]], "html": "<div class=\"p28\" style=\"background:var(--c1)\"><span class=\"st-1\" style=\"background:var(--c2);color:#fff;box-shadow:0 4px 0 color-mix(in srgb,var(--c2) 70%,#000)\">NEW</span><span class=\"st-2\" style=\"color:var(--c3);text-shadow:0 3px 0 color-mix(in srgb,var(--c3) 70%,#000)\">★</span><h4 style=\"color:var(--c4);text-shadow:0 3px 0 color-mix(in srgb,var(--c4) 30%,transparent)\">Tap me!</h4><span class=\"st-btn\" style=\"background:var(--c3);color:#fff;box-shadow:0 5px 0 color-mix(in srgb,var(--c3) 70%,#000)\">GO →</span></div>"}, {"n": "29", "tag": "Frost Light", "name": "Light Glass", "desc": "밝은 배경의 프로스티드 글래스와 은은한 보더. 가볍고 청량한 라이트 모드 글래스.", "palettes": [["#EAF0FF", "#D6E4FF", "#9BB8FF", "#5C7CFA"], ["#EAFFF6", "#D6FFEC", "#9BFFC4", "#2CB67D"], ["#FFEAF4", "#FFD6E8", "#FF9BC4", "#E84393"], ["#FFF4EA", "#FFE8D6", "#FFC49B", "#E8732C"], ["#F4EAFF", "#E8D6FF", "#C49BFF", "#7C3AED"]], "html": "<div class=\"p29\" style=\"background:linear-gradient(135deg,var(--c1),var(--c2))\"><span class=\"fl-orb\" style=\"background:var(--c3)\"></span><div class=\"fl-glass\"><span class=\"fl-pill\" style=\"color:var(--c4);background:color-mix(in srgb,var(--c4) 12%,transparent)\">Light</span><h4 style=\"color:color-mix(in srgb,var(--c4) 80%,#222)\">Clear &<br>calm</h4></div></div>"}, {"n": "30", "tag": "Duotone Bold", "name": "Two-Tone", "desc": "두 가지 색만으로 구성한 강렬한 듀오톤. 단순하지만 임팩트 있는 컬러 시스템.", "palettes": [["#1A1B4B", "#FF4757", "#1A1B4B", "#FF4757"], ["#0B2818", "#FFD23F", "#0B2818", "#FFD23F"], ["#2B0B2B", "#00E5C4", "#2B0B2B", "#00E5C4"], ["#1A1A1A", "#FF6B00", "#1A1A1A", "#FF6B00"], ["#0A1A3A", "#FF61D2", "#0A1A3A", "#FF61D2"]], "html": "<div class=\"p30\" style=\"background:var(--c1)\"><h4 style=\"color:var(--c2)\">DUO</h4><div class=\"dt-row\"><span class=\"dt-a\" style=\"background:var(--c2)\"></span><span class=\"dt-b\" style=\"background:var(--c1);border-color:var(--c2)\"></span></div><span class=\"dt-btn\" style=\"background:var(--c2);color:var(--c1)\">View →</span></div>"}];
+// ── state ──────────────────────────────────────────────────────
+const cardState = {};
+let favorites = new Set(JSON.parse(localStorage.getItem('dpfavs')||'[]'));
+let activeFilter = '전체';
+let exportState = {n:null, tab:'claude'};
+
+// ── filters ────────────────────────────────────────────────────
+const FILTERS = [
+  {k:'전체',   ids:null},
+  {k:'Dark',   ids:['03','07','08','12','16','19','22','24','27']},
+  {k:'Light',  ids:['05','09','10','15','17','23','25','29']},
+  {k:'Bold',   ids:['01','06','14','21','24','28','30']},
+  {k:'Glass',  ids:['02','13','29']},
+  {k:'Pastel', ids:['09','11','17','28']},
+  {k:'Retro',  ids:['04','14','18','23']},
+  {k:'Techy',  ids:['04','07','08','13','16','27']},
+  {k:'Minimal',ids:['10','15','20','25']},
+  {k:'★',      ids:'favs'},
+];
+
+// ── inject filter bar ───────────────────────────────────────────
+(function(){
+  const bar = document.createElement('div');
+  bar.className = 'filter-bar';
+  bar.innerHTML = FILTERS.map(f=>`<button class="ftag${f.k==='전체'?' active':''}" onclick="setFilter('${f.k}')">${f.k}</button>`).join('');
+  const gridEl = document.getElementById('grid');
+  gridEl.parentElement.insertBefore(bar, gridEl);
+})();
+
+// ── inject export modal ─────────────────────────────────────────
+(function(){
+  const m = document.createElement('div');
+  m.id = 'export-modal';
+  m.className = 'modal-overlay';
+  m.innerHTML = `
+    <div class="modal-box">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title-tag" id="modal-ttag"></div>
+          <div class="modal-title-name" id="modal-tname"></div>
+        </div>
+        <button class="modal-close" onclick="closeExport()">✕</button>
+      </div>
+      <div class="modal-tabs">
+        <button class="mtab active" onclick="switchTab('claude',this)">Claude Code</button>
+        <button class="mtab" onclick="switchTab('v0',this)">v0</button>
+        <button class="mtab" onclick="switchTab('lovable',this)">Lovable</button>
+        <button class="mtab" onclick="switchTab('cursor',this)">Cursor</button>
+        <button class="mtab sep" onclick="switchTab('css',this)">CSS 변수</button>
+        <button class="mtab" onclick="switchTab('tailwind',this)">Tailwind</button>
+      </div>
+      <pre class="modal-content" id="modal-content"></pre>
+      <div class="modal-footer">
+        <span class="modal-hint" id="modal-hint"></span>
+        <button class="modal-copybtn" id="modal-copybtn" onclick="copyExport()">⎘ 복사</button>
+      </div>
+    </div>`;
+  m.addEventListener('click', e=>{ if(e.target===m) closeExport(); });
+  document.body.appendChild(m);
+})();
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeExport(); });
+
+// ── card render ─────────────────────────────────────────────────
+const grid = document.getElementById('grid');
+
+templates.forEach((t,i)=>{
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.id = 'card-'+t.n;
+  card.style.animationDelay = (i*0.05)+'s';
+  const pid = 'pv-'+t.n;
+  const palBtns = t.palettes.map((p,idx)=>`
+    <button class="pal-btn${idx===0?' active':''}" onclick="applyPal('${t.n}',${idx},this)">
+      <span class="pname">${PAL_NAMES[idx]}</span>
+      <span class="chips">${p.map(c=>`<span style="background:${c}"></span>`).join('')}</span>
+    </button>`).join('');
+  card.innerHTML=`
+    <div class="preview" id="${pid}">
+      ${t.html}
+      <button class="fav-btn${favorites.has(t.n)?' active':''}" id="fav-${t.n}" onclick="toggleFav('${t.n}')">★</button>
+    </div>
+    <div class="meta">
+      <span class="tag">${t.n} · ${t.tag}</span>
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+      <span class="pal-label">컬러 조합</span>
+      <div class="palettes">
+        ${palBtns}
+        <button class="pal-btn custom-trigger" id="ctrig-${t.n}" onclick="openCustom('${t.n}',this)">
+          <span class="pname">직접입력</span>
+          <span class="chips" id="cchips-${t.n}">
+            <span></span><span></span><span></span><span></span>
+          </span>
+        </button>
+        <div class="custom-panel" id="cpanel-${t.n}">
+          <div class="custom-row"><span class="custom-lbl">C1</span><input type="color" class="custom-swatch" id="cc1-${t.n}" oninput="updateCustom('${t.n}')"><input type="text" class="custom-hex" id="ch1-${t.n}" maxlength="7" placeholder="#000000" oninput="hexSync('${t.n}',0,this)"></div>
+          <div class="custom-row"><span class="custom-lbl">C2</span><input type="color" class="custom-swatch" id="cc2-${t.n}" oninput="updateCustom('${t.n}')"><input type="text" class="custom-hex" id="ch2-${t.n}" maxlength="7" placeholder="#000000" oninput="hexSync('${t.n}',1,this)"></div>
+          <div class="custom-row"><span class="custom-lbl">C3</span><input type="color" class="custom-swatch" id="cc3-${t.n}" oninput="updateCustom('${t.n}')"><input type="text" class="custom-hex" id="ch3-${t.n}" maxlength="7" placeholder="#000000" oninput="hexSync('${t.n}',2,this)"></div>
+          <div class="custom-row"><span class="custom-lbl">C4</span><input type="color" class="custom-swatch" id="cc4-${t.n}" oninput="updateCustom('${t.n}')"><input type="text" class="custom-hex" id="ch4-${t.n}" maxlength="7" placeholder="#000000" oninput="hexSync('${t.n}',3,this)"></div>
+        </div>
+      </div>
+      <div class="action-row">
+        <button class="copybtn" id="copybtn-${t.n}" onclick="copyHex('${t.n}')">⎘ HEX 복사</button>
+        <button class="exportbtn" onclick="openExport('${t.n}')">↗ 내보내기</button>
+        <button class="usebtn" onclick="pick('${t.name}')">⌁ 이 스타일로 생성하기</button>
+      </div>
+    </div>`;
+  grid.appendChild(card);
+  cardState[t.n] = {idx:0, colors:[...t.palettes[0]]};
+  applyPal(t.n, 0);
+});
+
+// ── palette ──────────────────────────────────────────────────────
+function applyPal(n, idx, btn){
+  const t = templates.find(x=>x.n===n);
+  const pv = document.getElementById('pv-'+n);
+  const p = t.palettes[idx];
+  ['--c1','--c2','--c3','--c4'].forEach((v,i)=>pv.style.setProperty(v,p[i]));
+  cardState[n] = {idx, colors:[...p]};
+  if(btn){
+    btn.closest('.palettes').querySelectorAll('.pal-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const panel = document.getElementById('cpanel-'+n);
+    if(panel) panel.classList.remove('open');
+    resetChips(n);
+  }
+}
+function openCustom(n, btn){
+  const panel = document.getElementById('cpanel-'+n);
+  if(panel.classList.contains('open')){
+    panel.classList.remove('open');
+    btn.classList.remove('active');
+    return;
+  }
+  const cols = cardState[n]?.colors || ['#000000','#ffffff','#888888','#ffffff'];
+  for(let i=1;i<=4;i++){
+    document.getElementById('cc'+i+'-'+n).value = cols[i-1];
+    document.getElementById('ch'+i+'-'+n).value = cols[i-1];
+  }
+  btn.closest('.palettes').querySelectorAll('.pal-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  panel.classList.add('open');
+}
+function updateCustom(n){
+  const pv = document.getElementById('pv-'+n);
+  const colors = [];
+  for(let i=1;i<=4;i++){
+    const c = document.getElementById('cc'+i+'-'+n).value;
+    colors.push(c);
+    pv.style.setProperty('--c'+i, c);
+    document.getElementById('ch'+i+'-'+n).value = c;
+  }
+  cardState[n] = {idx:'custom', colors};
+  const chips = document.getElementById('cchips-'+n)?.querySelectorAll('span');
+  chips?.forEach((s,i)=>{ s.style.background=colors[i]; s.style.border='1px solid rgba(255,255,255,.1)'; });
+}
+function hexSync(n, ci, input){
+  if(/^#[0-9a-fA-F]{6}$/.test(input.value)){
+    document.getElementById('cc'+(ci+1)+'-'+n).value = input.value;
+    updateCustom(n);
+  }
+}
+function resetChips(n){
+  const chips = document.getElementById('cchips-'+n)?.querySelectorAll('span');
+  chips?.forEach(s=>{ s.style.background=''; s.style.border=''; });
+}
+function copyHex(n){
+  const colors = cardState[n]?.colors || [];
+  navigator.clipboard.writeText(colors.join(', ')).then(()=>{
+    const btn = document.getElementById('copybtn-'+n);
+    const orig = btn.textContent;
+    btn.textContent = '✓ 복사됨';
+    btn.classList.add('done');
+    setTimeout(()=>{ btn.textContent=orig; btn.classList.remove('done'); }, 2000);
+  });
+}
+
+// ── favorites ────────────────────────────────────────────────────
+function toggleFav(n){
+  if(favorites.has(n)) favorites.delete(n);
+  else favorites.add(n);
+  localStorage.setItem('dpfavs', JSON.stringify([...favorites]));
+  document.getElementById('fav-'+n).classList.toggle('active', favorites.has(n));
+  if(activeFilter==='★') applyFilter();
+}
+
+// ── filter ───────────────────────────────────────────────────────
+function setFilter(k){
+  activeFilter = k;
+  document.querySelectorAll('.ftag').forEach(b=>b.classList.toggle('active', b.textContent===k));
+  applyFilter();
+}
+function applyFilter(){
+  const f = FILTERS.find(x=>x.k===activeFilter);
+  templates.forEach(t=>{
+    const card = document.getElementById('card-'+t.n);
+    let show;
+    if(!f || !f.ids) show = true;
+    else if(f.ids==='favs') show = favorites.has(t.n);
+    else show = f.ids.includes(t.n);
+    card.style.display = show ? '' : 'none';
+  });
+}
+
+// ── export / prompt ──────────────────────────────────────────────
+function openExport(n){
+  exportState = {n, tab:'claude'};
+  const t = templates.find(x=>x.n===n);
+  document.getElementById('modal-ttag').textContent = t.tag;
+  document.getElementById('modal-tname').textContent = t.name;
+  document.querySelectorAll('.mtab').forEach((b,i)=>b.classList.toggle('active', i===0));
+  renderExport();
+  document.getElementById('export-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeExport(){
+  document.getElementById('export-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function switchTab(tab, btn){
+  exportState.tab = tab;
+  document.querySelectorAll('.mtab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderExport();
+}
+function renderExport(){
+  document.getElementById('modal-content').textContent = generateExport(exportState.n, exportState.tab);
+  const hints = {
+    claude: 'Claude Code 채팅 또는 CLAUDE.md에 붙여넣기',
+    v0:     'v0.dev 프롬프트 입력창에 붙여넣기',
+    lovable:'Lovable 채팅창에 붙여넣기',
+    cursor: 'Cursor 채팅 또는 .cursorrules에 추가',
+    css:    '글로벌 CSS :root 블록에 붙여넣기',
+    tailwind:'tailwind.config.js theme.extend.colors에 추가',
+  };
+  document.getElementById('modal-hint').textContent = hints[exportState.tab] || '';
+}
+function generateExport(n, tab){
+  const t = templates.find(x=>x.n===n);
+  const [c1,c2,c3,c4] = cardState[n]?.colors || t.palettes[0];
+  if(tab==='claude') return `다음 디자인 시스템으로 UI 컴포넌트를 구현해줘.
+
+스타일: ${t.tag} — ${t.name}
+설명: ${t.desc}
+
+컬러 팔레트:
+  C1 (베이스):  ${c1}
+  C2 (액센트): ${c2}
+  C3 (서브):   ${c3}
+  C4 (서피스): ${c4}
+
+구현 조건:
+- CSS 커스텀 프로퍼티 --c1~--c4를 :root에 선언하고 모든 색상은 변수만 참조
+- 반응형 (모바일 1열 / 데스크탑 2열 이상)
+- 호버 인터랙션 포함
+- 외부 라이브러리 없이 vanilla CSS`;
+  if(tab==='v0') return `Create a production-ready UI section with the "${t.name}" design system.
+
+Style: ${t.tag}
+${t.desc}
+
+Colors (use exactly):
+  Background/Base: ${c1}
+  Accent/CTA:      ${c2}
+  Secondary:       ${c3}
+  Surface/Text:    ${c4}
+
+Use Tailwind CSS. Include a hero section with heading, subtext, and CTA button. Follow ${t.tag} aesthetics precisely.`;
+  if(tab==='lovable') return `${t.name} 스타일로 랜딩페이지 히어로 섹션 만들어줘.
+
+${t.desc}
+
+컬러:
+  베이스:  ${c1}
+  포인트: ${c2}
+  서브:   ${c3}
+  텍스트: ${c4}
+
+"${t.tag}" 무드로 헤딩 + 서브텍스트 + CTA 버튼 포함해서 완성도 있게 만들어줘.`;
+  if(tab==='cursor') return `// Design System: ${t.tag} — ${t.name}
+// ${t.desc}
+
+const designTokens = {
+  colors: {
+    base:    '${c1}', // background / dominant surface
+    accent:  '${c2}', // primary CTA, highlight
+    sub:     '${c3}', // secondary elements, borders
+    surface: '${c4}', // text, icons on dark bg
+  },
+  style: '${t.tag}',
+} as const;
+
+// Task: build a React + Tailwind component using these tokens.
+// Map: base→bg-*, accent→primary buttons, sub→borders/secondary, surface→text-*.`;
+  if(tab==='css') return `/* ${t.tag} — ${t.name} */
+:root {
+  --c1: ${c1}; /* base */
+  --c2: ${c2}; /* accent */
+  --c3: ${c3}; /* sub */
+  --c4: ${c4}; /* surface */
+}`;
+  if(tab==='tailwind') return `// tailwind.config.js — ${t.tag} (${t.name})
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'brand-base':    '${c1}',
+        'brand-accent':  '${c2}',
+        'brand-sub':     '${c3}',
+        'brand-surface': '${c4}',
+      },
+    },
+  },
+};`;
+  return '';
+}
+function copyExport(){
+  const text = document.getElementById('modal-content').textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = document.getElementById('modal-copybtn');
+    const orig = btn.textContent;
+    btn.textContent = '✓ 복사됨';
+    btn.classList.add('done');
+    setTimeout(()=>{ btn.textContent=orig; btn.classList.remove('done'); }, 2000);
+  });
+}
+
+// ── misc ─────────────────────────────────────────────────────────
+function pick(name){
+  alert(name + ' 스타일을 선택했습니다.\n실제 서비스에서는 스튜디오(/studio)로 이동해 선택한 컬러 조합으로 디자인팩을 생성합니다.');
+}
+</script>
+</body>
+</html>
